@@ -30,13 +30,9 @@ const PrimerComponente = () => {
 
   // vamos a crear 2 funciones una para sumar y otra para restar
   // Estas 2 funciones esta cambiado el estado de la variable count
-  const sumar = () => {
-    setCount(count + 1);
-  };
+  const sumar = () => setCount(count + 1);
 
-  const restar = () => {
-    setCount(count - 1);
-  };
+  const restar = () => setCount(count - 1);
 
   return (
     <div>
@@ -46,6 +42,10 @@ const PrimerComponente = () => {
         {/* vamos a crear 2 botones uno para poder sumarle 1 a count y otro para restarle */}
         <button onClick={sumar}>Sumar</button>
         <button onClick={restar}>Restar</button>
+        {/* Si queremos usar parentensis al momento de llamar a una funcion debemos primera
+          ejecutarla como un callback */}
+        {/* Ademas es la forma en el caso nuestra reciba algun parametro */}
+        <button onClick={() => restar()}>Restar</button>
       </div>
     </div>
   );
