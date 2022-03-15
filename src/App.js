@@ -1,5 +1,6 @@
 // paso1: Importar useState
 import { useState } from "react";
+import Header from "./Header";
 
 // El primer paso para definir un componente es el nombre
 // El nombre de un componente siempre debe iniciar en mayuscula
@@ -40,6 +41,7 @@ const PrimerComponente = () => {
 
   return (
     <div>
+      <Header />
       <h1>Hola mundo</h1>
       <div>
         <h4>Hola desde el componente {count}</h4>
