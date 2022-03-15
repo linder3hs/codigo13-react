@@ -1,14 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+// Para poder importar un componente debos llamarlo por el nombre que fue exportado
+import PrimerComponente from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* Para usar un componente debo tratarlo como si fuera una etiqueta HTML */}
+    <PrimerComponente />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
