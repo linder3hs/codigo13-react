@@ -34,6 +34,10 @@ const PrimerComponente = () => {
 
   const restar = () => setCount(count - 1);
 
+  const parametros = (n1, n2) => {
+    setCount(n1 + n2);
+  };
+
   return (
     <div>
       <h1>Hola mundo</h1>
@@ -45,7 +49,7 @@ const PrimerComponente = () => {
         {/* Si queremos usar parentensis al momento de llamar a una funcion debemos primera
           ejecutarla como un callback */}
         {/* Ademas es la forma en el caso nuestra reciba algun parametro */}
-        <button onClick={() => restar()}>Restar</button>
+        <button onClick={() => parametros(10, 20)}>Restar</button>
       </div>
     </div>
   );
