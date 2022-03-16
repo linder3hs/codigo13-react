@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button, Form } from "react-bootstrap";
 
 const FormUser = () => {
   // La otra forma en la cual podemos guardar los datos de los inputs
@@ -37,49 +38,53 @@ const FormUser = () => {
 
   return (
     <div>
-      <form action="">
-        {/* En react la forma en la cual damos un clase es usando el className */}
-        <h4 className="title">Formualario de Usuarios</h4>
-        <h5>Nombre {valorDeInputs.nombre}</h5>
-        <h5>Apellido {valorDeInputs.apellido}</h5>
-        <h5>Correo {valorDeInputs.correo}</h5>
-        <h5>Password {valorDeInputs.password}</h5>
-        <p>
-          <input
-            type="text"
-            onChange={handleInputValues}
-            name="nombre"
-            placeholder="Ingrese su nombre"
-          />
-        </p>
-        <p>
-          <input
-            type="text"
-            name="apellido"
-            onChange={handleInputValues}
-            placeholder="Ingrese su apellido"
-          />
-        </p>
-        <p>
-          <input
-            type="email"
-            onChange={handleInputValues}
-            name="correo"
-            placeholder="Ingrese su email"
-          />
-        </p>
-        <p>
-          <input
-            type="password"
-            name="password"
-            onChange={handleInputValues}
-            placeholder="Ingrese su password"
-          />
-        </p>
-        <p>
-          <button type="submit">Registar</button>
-        </p>
-      </form>
+      <Form action="">
+        <Form.Group>
+          {/* En react la forma en la cual damos un clase es usando el className */}
+          <h4 className="title">Formualario de Usuarios</h4>
+          <h5>Nombre {valorDeInputs.nombre}</h5>
+          <h5>Apellido {valorDeInputs.apellido}</h5>
+          <h5>Correo {valorDeInputs.correo}</h5>
+          <h5>Password {valorDeInputs.password}</h5>
+          <p>
+            <Form.Control
+              type="text"
+              onChange={handleInputValues}
+              name="nombre"
+              placeholder="Ingrese su nombre"
+            />
+          </p>
+          <p>
+            <Form.Control
+              type="text"
+              name="apellido"
+              onChange={handleInputValues}
+              placeholder="Ingrese su apellido"
+            />
+          </p>
+          <p>
+            <Form.Control
+              type="email"
+              onChange={handleInputValues}
+              name="correo"
+              placeholder="Ingrese su email"
+            />
+          </p>
+          <p>
+            <Form.Control
+              type="password"
+              name="password"
+              onChange={handleInputValues}
+              placeholder="Ingrese su password"
+            />
+          </p>
+          <p>
+            <Button variant="primary" type="submit">
+              Registar
+            </Button>
+          </p>
+        </Form.Group>
+      </Form>
     </div>
   );
 };

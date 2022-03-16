@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 // Al importar el archivo index.css en index.js
 // esto esta haciendo un import global, es decir lo puedo desde cualquiervo del proyecto
 import "./index.css";
