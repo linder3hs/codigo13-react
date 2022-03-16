@@ -47,18 +47,21 @@ const FormUser = () => {
         <h5>Password {valorDeInputs.password}</h5>
         <p>
           <TextField
+            error={false}
             type="text"
             onChange={handleInputValues}
             name="nombre"
-            placeholder="Ingrese su nombre"
+            variant="outlined"
+            label="Ingrese su nombre"
           />
         </p>
         <p>
           <TextField
             type="text"
             name="apellido"
+            variant="filled"
             onChange={handleInputValues}
-            placeholder="Ingrese su apellido"
+            label="Ingrese su apellido"
           />
         </p>
         <p>
@@ -66,7 +69,8 @@ const FormUser = () => {
             type="email"
             onChange={handleInputValues}
             name="correo"
-            placeholder="Ingrese su email"
+            variant="standard"
+            label="Ingrese su email"
           />
         </p>
         <p>
@@ -74,7 +78,7 @@ const FormUser = () => {
             type="password"
             name="password"
             onChange={handleInputValues}
-            placeholder="Ingrese su password"
+            label="Ingrese su password"
           />
         </p>
         <p>
