@@ -38,7 +38,8 @@ const FormUser = () => {
   return (
     <div>
       <form action="">
-        <h4>Formualario de Usuarios</h4>
+        {/* En react la forma en la cual damos un clase es usando el className */}
+        <h4 className="title">Formualario de Usuarios</h4>
         <h5>Nombre {valorDeInputs.nombre}</h5>
         <h5>Apellido {valorDeInputs.apellido}</h5>
         <h5>Correo {valorDeInputs.correo}</h5>
