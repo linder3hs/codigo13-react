@@ -1,6 +1,7 @@
 // paso1: Importar useState
 import { useState } from "react";
 import Header from "./Header";
+import Footer from "./Footer";
 
 // El primer paso para definir un componente es el nombre
 // El nombre de un componente siempre debe iniciar en mayuscula
@@ -53,6 +54,7 @@ const PrimerComponente = () => {
         {/* Ademas es la forma en el caso nuestra reciba algun parametro */}
         <button onClick={() => parametros(10, 20)}>Restar</button>
       </div>
+      <Footer />
     </div>
   );
 };
