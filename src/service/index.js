@@ -17,9 +17,19 @@ const BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=200";
 
 // url toma el valor https://link.com
 // getDataFromPokemon("https://link.com");
-async function getDataFromPokemon(url = BASE_URL) {
+export const getDataFromPokemon = async (url = BASE_URL) => {
   try {
+    // ahora debemos ejecutar el fetch para poder traer la informacion
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
   } catch (error) {
     console.log(error.message);
   }
-}
+};
+
+// export const storePokemon = async () => {};
+
+// export const updatePokemon = async () => {};
+
+// export const deletePokemon = async () => {};
