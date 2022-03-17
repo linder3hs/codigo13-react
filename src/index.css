@@ -15,3 +15,16 @@ form {
 h5 {
   color: purple;
 }
+
+.card-pokemon {
+  max-width: 300px;
+  min-height: 350px;
+  max-height: 350px;
+}
+
+.img-pokemon {
+  min-height: 250px;
+  max-height: 250px;
+  object-fit: contain !important;
+  margin-top: 15px;
+}

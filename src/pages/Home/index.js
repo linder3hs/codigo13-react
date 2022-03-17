@@ -59,9 +59,10 @@ const Home = () => {
           pokemons.map((pokemon, index) => (
             // aca el codigo visual
             <Grid item md={4} lg={4} sm={12} xs={12}>
-              <Card sx={{ width: 300 }}>
+              <Card className="card-pokemon">
                 <CardMedia
                   component="img"
+                  className="img-pokemon"
                   image={`${imgUrl}${index + 1}.svg`}
                 />
                 <CardContent>
