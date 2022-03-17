@@ -66,7 +66,7 @@ const Home = () => {
                   image={`${imgUrl}${index + 1}.svg`}
                 />
                 <CardContent>
-                  <h3>{pokemon.name}</h3>
+                  <h3 className="name-pokemon">{pokemon.name}</h3>
                 </CardContent>
               </Card>
             </Grid>

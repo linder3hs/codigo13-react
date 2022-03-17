@@ -28,3 +28,8 @@ h5 {
   object-fit: contain !important;
   margin-top: 15px;
 }
+
+.name-pokemon {
+  text-transform: uppercase;
+  text-align: center;
+}
