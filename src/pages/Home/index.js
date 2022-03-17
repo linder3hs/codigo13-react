@@ -1,11 +1,14 @@
 // En material existe un tag llamando container
 import { useEffect, useState } from "react";
-import { Container } from "@mui/material";
+import { Container, Card, CardContent, CardMedia } from "@mui/material";
 import { getDataFromPokemon } from "../../service";
 // vamos a ver como pode ejecutar la funcion que se encargar de traer a los
 // pokemones
 
 const Home = () => {
+  const imgUrl =
+    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/";
+
   // vamos a crear una variable la cual se encargue de guardar la lista de pokemones
   const [pokemons, setPokemon] = useState([]);
 
@@ -53,9 +56,14 @@ const Home = () => {
       )} */}
 
       {pokemons.length > 0 &&
-        pokemons.map((pokemon) => (
+        pokemons.map((pokemon, index) => (
           // aca el codigo visual
-          <p>{pokemon.name}</p>
+          <Card sx={{ width: 300 }}>
+            <CardMedia component="img" image={`${imgUrl}${index + 1}.svg`} />
+            <CardContent>
+              <h3>{pokemon.name}</h3>
+            </CardContent>
+          </Card>
         ))}
     </Container>
   );
