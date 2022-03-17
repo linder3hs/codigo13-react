@@ -34,6 +34,29 @@ const Home = () => {
   return (
     <Container>
       <h1>Pokedex</h1>
+      {/* es bueno validar que el array este lleno para que recien ejecute el map */}
+      {/* && estamos simulando un if  */}
+      {/* if (pokemons.lenght > 0) {
+          "lleno"
+      } */}
+      {/* pokemons.lenght > 0 && "leno" */}
+      {/* pokemons.lenght > 0 ? "lleno" : "vacio" */}
+
+      {/*  Operador ternario => if {} else {}  */}
+      {/* {pokemons.length > 0 ? (
+        pokemons.map((pokemon) => (
+          // aca el codigo visual
+          <p>{pokemon.name}</p>
+        ))
+      ) : (
+        <h4>No hay datos</h4>
+      )} */}
+
+      {pokemons.length > 0 &&
+        pokemons.map((pokemon) => (
+          // aca el codigo visual
+          <p>{pokemon.name}</p>
+        ))}
     </Container>
   );
 };
