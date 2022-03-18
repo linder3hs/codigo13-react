@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { Button, Dialog, DialogContent } from "@mui/material";
+import {
+  Button,
+  Chip,
+  Dialog,
+  DialogContent,
+  Grid,
+  Slider,
+} from "@mui/material";
 import { getDataFromPokemon } from "../../service";
 
 const PokemonDetail = (props) => {
@@ -49,12 +56,46 @@ const PokemonDetail = (props) => {
           {Object.keys(pokemonData).length > 0 && (
             <div className="center">
               <h2 className="name-pokemon">{props.nombre}</h2>
-              <img
-                src={
-                  pokemonData.sprites.other["official-artwork"].front_default
-                }
-                alt=""
-              />
+              <Grid container>
+                <Grid item md={6}>
+                  <h4>Habilidades</h4>
+                  {pokemonData.abilities.map((abilitie) => (
+                    <Chip
+                      label={abilitie.ability.name}
+                      color="primary"
+                      sx={{ marginRight: 2 }}
+                    />
+                  ))}
+                  <h4>Especie</h4>
+                  <Chip
+                    label={pokemonData.species.name}
+                    color="success"
+                    sx={{ marginRight: 2 }}
+                  />
+                  <h4>Puntos de base</h4>
+                  {pokemonData.stats.map((stat) => (
+                    <div>
+                      <h5>{stat.stat.name}</h5>
+                      <Slider
+                        defaultValue={+stat.base_stat}
+                        aria-label="Always visible"
+                        valueLabelDisplay="on"
+                        disabled
+                      />
+                    </div>
+                  ))}
+                </Grid>
+                <Grid item md={6}>
+                  <img
+                    width={350}
+                    src={
+                      pokemonData.sprites.other["official-artwork"]
+                        .front_default
+                    }
+                    alt=""
+                  />
+                </Grid>
+              </Grid>
             </div>
           )}
           <Button onClick={handleOpenDialog}>Cerrar</Button>
