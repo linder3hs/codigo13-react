@@ -97,7 +97,7 @@ const PokemonDetail = (props) => {
                     </div>
                   ))}
                 </Grid>
-                <Grid item md={6}>
+                <Grid item md={6} className="center">
                   <img
                     width={350}
                     src={
@@ -106,6 +106,29 @@ const PokemonDetail = (props) => {
                     }
                     alt=""
                   />
+                  <Grid container className="center">
+                    <Grid item sm={6}>
+                      <img
+                        src={
+                          pokemonData.sprites.versions["generation-iii"]
+                            .emerald["front_shiny"]
+                        }
+                        alt="img"
+                        width={100}
+                      />
+
+                    </Grid>
+                    <Grid item sm={6}>
+                      <img
+                        src={
+                          pokemonData.sprites.versions["generation-iii"]
+                          ["firered-leafgreen"]["back_shiny"]
+                        }
+                        alt="img"
+                        width={100}
+                      />
+                    </Grid>
+                  </Grid>
                 </Grid>
               </Grid>
             </div>
