@@ -66,9 +66,21 @@ const PokemonDetail = (props) => {
                       sx={{ marginRight: 2 }}
                     />
                   ))}
-                  <h4>Especie</h4>
+                  <h4>Datos</h4>
+                  {pokemonData.types.map((type) => (
+                    <Chip
+                      label={type.type.name}
+                      color="warning"
+                      sx={{ marginRight: 2 }}
+                    />
+                  ))}
                   <Chip
-                    label={pokemonData.species.name}
+                    label={`${pokemonData.height / 10} m`}
+                    color="success"
+                    sx={{ marginRight: 2 }}
+                  />
+                  <Chip
+                    label={`${pokemonData.weight / 10} kg`}
                     color="success"
                     sx={{ marginRight: 2 }}
                   />
