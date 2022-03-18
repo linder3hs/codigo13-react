@@ -69,7 +69,7 @@ const Home = () => {
                 <CardContent className="center">
                   <h3 className="name-pokemon">{pokemon.name}</h3>
                   {/* vamos a pasarle el nombre como atributo*/}
-                  <PokemonDetail nombre={pokemon.name} />
+                  <PokemonDetail nombre={pokemon.name} url={pokemon.url} />
                 </CardContent>
               </Card>
             </Grid>
