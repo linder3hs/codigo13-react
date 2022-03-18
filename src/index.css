@@ -13,7 +13,8 @@ form {
 }
 
 h5 {
-  color: purple;
+  text-transform: uppercase;
+  margin-bottom: 0;
 }
 
 .center {

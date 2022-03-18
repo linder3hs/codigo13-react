@@ -54,7 +54,7 @@ const PokemonDetail = (props) => {
         <DialogContent>
           {/* Esto extrar los keys de un objeto */}
           {Object.keys(pokemonData).length > 0 && (
-            <div className="center">
+            <div>
               <h2 className="name-pokemon">{props.nombre}</h2>
               <Grid container>
                 <Grid item md={6}>
