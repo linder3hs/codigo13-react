@@ -5,11 +5,13 @@ import { getDataFromPokemon } from "../../service";
 const PokemonDetail = (props) => {
   const [abrir, setAbrir] = useState(false);
 
+  const [pokemonData, setPokemonData] = useState({});
+
   // como se lee un atributo que estamos recibiendo del componente
   // padre
   const fetchDetailFromPokemon = async () => {
     const pokemon = await getDataFromPokemon(props.url);
-    console.log(pokemon);
+    setPokemonData(pokemon);
   };
 
   // vamos a hacer una funcion la cual se encargue de cambiar el estado
@@ -43,7 +45,18 @@ const PokemonDetail = (props) => {
         maxWidth={"md"}
       >
         <DialogContent>
-          <h4>Pokemon {props.nombre}</h4>
+          {/* Esto extrar los keys de un objeto */}
+          {Object.keys(pokemonData).length > 0 && (
+            <div className="center">
+              <h2 className="name-pokemon">{props.nombre}</h2>
+              <img
+                src={
+                  pokemonData.sprites.other["official-artwork"].front_default
+                }
+                alt=""
+              />
+            </div>
+          )}
           <Button onClick={handleOpenDialog}>Cerrar</Button>
         </DialogContent>
       </Dialog>
