@@ -103,6 +103,7 @@ const Youtube = () => {
               />
             </Grid>
           </Grid>
+          <h4>Marvel</h4>
           {movies.length > 0 &&
             movies.map((movie) => (
               <Grid item md={3}>
@@ -112,12 +113,12 @@ const Youtube = () => {
                   controls
                   muted
                   poster={movie.wallpaper}
-                  class="video"
+                  className="video"
                 >
                   <source src={movie.video_link} />
                 </video>
-                <h5 class="title">{movie.name}</h5>
-                <p class="subtitle">{movie.director}</p>
+                <h5 className="title">{movie.name}</h5>
+                <p className="subtitle">{movie.director}</p>
               </Grid>
             ))}
         </Grid>
