@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Container, Grid, TextField } from "@mui/material"
+import { Card, CardContent, CardMedia, Container, Grid, TextField } from "@mui/material"
 import { getDataFromPokemon } from "../../service"
 
 const Flags = () => {
@@ -26,7 +26,20 @@ const Flags = () => {
         {
           countries.length > 0 && countries.map(country => (
             <Grid item md={3} xs={12}>
-              <h4>{country.name}</h4>
+              <Card>
+                <CardMedia
+                  component="img"
+                  height={200}
+                  image={country.flags.svg}
+                />
+                <CardContent>
+                  <h4>{country.name}</h4>
+                  <p>Population: {country.population}</p>
+                  <p>Region: {country.region}</p>
+                  <p>Capital: {country.capital}</p>
+                </CardContent>
+              </Card>
+
             </Grid>
           ))
         }
