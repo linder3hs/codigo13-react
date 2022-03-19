@@ -12,17 +12,36 @@ import {
 } from "@mui/material";
 import EditRoundedIcon from "@mui/icons-material/EditRounded";
 import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
-import { getMovies } from "../../service/movies";
+import { getMovies, deleteItem } from "../../service/movies";
+import swal from "sweetalert";
 
 const YoutubeAdministrator = () => {
   const [movies, setMovies] = useState([]);
-
   // reto deben completar el codigo para poder traer las peliculas
   // cuando la pagina de inicie
   // solo la parte del codigo
   const fetchMovies = async () => {
     const response = await getMovies();
     setMovies(response);
+  };
+
+  const fetchDeleteItem = async (id) => {
+    console.log(id);
+    const response = await swal({
+      title: "Esta seguro de eliminar?",
+      text: "Recuerda que una vez eliminado no hay vuelta atras",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    });
+
+    if (response) {
+      await deleteItem(id);
+      // despues de eliminar la pelicula debemos recargar la tabla
+      // despues de elimniar la pelicula vamos a llamar a fetchMovies
+      // para que basicamente actualice la tabla y muestro los datos actualizados
+      await fetchMovies();
+    }
   };
 
   useEffect(() => {
@@ -57,7 +76,10 @@ const YoutubeAdministrator = () => {
                     <Button color="info">
                       <EditRoundedIcon />
                     </Button>
-                    <Button color="error">
+                    <Button
+                      color="error"
+                      onClick={() => fetchDeleteItem(movie.id)}
+                    >
                       <DeleteForeverRoundedIcon />
                     </Button>
                   </TableCell>
