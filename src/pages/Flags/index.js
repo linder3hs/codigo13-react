@@ -26,7 +26,6 @@ const Flags = () => {
   };
 
   const handleRegion = async (e) => {
-    console.log(e.target.value);
     setRegion(e.target.value);
     // primero debemos limpiar para poder llenarlo con la nueva informacion
     setCountries([]);
@@ -72,7 +71,7 @@ const Flags = () => {
                   image={country.flags.svg}
                 />
                 <CardContent>
-                  <h4>{country.name || country.name.official}</h4>
+                  <h4>{country.name}</h4>
                   <p>Population: {country.population}</p>
                   <p>Region: {country.region}</p>
                   <p>Capital: {country.capital}</p>
