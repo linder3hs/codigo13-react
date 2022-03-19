@@ -27,6 +27,13 @@ const Flags = () => {
 
   const handleRegion = async (e) => {
     setRegion(e.target.value);
+    // vamos a evaluar si el valor es igual a all entonces ejecutsa la funcion
+    // fetchCountries
+    if (e.target.value === "all") {
+      fetchCountries();
+      return;
+    }
+
     // primero debemos limpiar para poder llenarlo con la nueva informacion
     setCountries([]);
     const response = await getDataFromPokemon(
@@ -53,6 +60,7 @@ const Flags = () => {
               value={region}
               onChange={handleRegion}
             >
+              <MenuItem value="all">Todas las regiones</MenuItem>
               <MenuItem value="Africa">Africa</MenuItem>
               <MenuItem value="Americas">Americas</MenuItem>
               <MenuItem value="Asia">Asia</MenuItem>
