@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import {
+  Button,
   Container,
   Grid,
   Table,
@@ -10,6 +11,8 @@ import {
   TableRow,
   Paper,
 } from "@mui/material";
+import EditRoundedIcon from "@mui/icons-material/EditRounded";
+import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
 import { getMovies } from "../../service/movies";
 
 const YoutubeAdministrator = () => {
@@ -48,7 +51,17 @@ const YoutubeAdministrator = () => {
                   <TableCell>{movie.name}</TableCell>
                   <TableCell>{movie.director}</TableCell>
                   <TableCell>{movie.gender}</TableCell>
-                  <TableCell>{movie.video_link}</TableCell>
+                  <TableCell>
+                    <a href={movie.video_link}>Ver video</a>
+                  </TableCell>
+                  <TableCell>
+                    <Button color="info">
+                      <EditRoundedIcon />
+                    </Button>
+                    <Button color="error">
+                      <DeleteForeverRoundedIcon />
+                    </Button>
+                  </TableCell>
                 </TableRow>
               ))}
           </TableBody>
