@@ -46,6 +46,11 @@ const Flags = () => {
   const handleSearchCountry = (e) => {
     // Es una buena practica decirle que inicie a contar cuando tengamos mas de 3 letras
     const countryName = e.target.value;
+
+    if (countryName.length === 0) {
+      fetchCountries();
+    }
+
     if (countryName.length > 3) {
       // aca debemos iniciar la busqueda
       // para poder hacer la busqueda debeo transformar todo el text a UPPERCASE or LOWECASE
