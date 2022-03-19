@@ -20,7 +20,7 @@ const Flags = () => {
 
   const fetchCountries = async () => {
     const response = await getDataFromPokemon(
-      "https://restcountries.com/v2/all"
+      "https://restcountries.com/v3.1/all"
     );
     setCountries(response);
   };
@@ -30,7 +30,7 @@ const Flags = () => {
     // primero debemos limpiar para poder llenarlo con la nueva informacion
     setCountries([]);
     const response = await getDataFromPokemon(
-      `https://restcountries.com/v2/region/${e.target.value}`
+      `https://restcountries.com/v3.1/region/${e.target.value}`
     );
     setCountries(response);
   };
@@ -71,7 +71,7 @@ const Flags = () => {
                   image={country.flags.svg}
                 />
                 <CardContent>
-                  <h4>{country.name}</h4>
+                  <h4>{country.name.official}</h4>
                   <p>Population: {country.population}</p>
                   <p>Region: {country.region}</p>
                   <p>Capital: {country.capital}</p>
