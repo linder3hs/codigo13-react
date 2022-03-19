@@ -42,6 +42,20 @@ const Flags = () => {
     setCountries(response);
   };
 
+  // vamos a crear una funcion la cual se encargue de buscar los paises
+  const handleSearchCountry = (e) => {
+    // Es una buena practica decirle que inicie a contar cuando tengamos mas de 3 letras
+    const countryName = e.target.value;
+    if (countryName.length > 3) {
+      // aca debemos iniciar la busqueda
+      // para poder hacer la busqueda debeo transformar todo el text a UPPERCASE or LOWECASE
+      const filterCountries = countries.filter((country) =>
+        country.name.official.toUpperCase().includes(countryName.toUpperCase())
+      );
+      setCountries(filterCountries);
+    }
+  };
+
   useEffect(() => {
     fetchCountries();
   }, []);
@@ -50,7 +64,11 @@ const Flags = () => {
     <Container>
       <Grid container spacing={3} mt={5}>
         <Grid item md={6}>
-          <TextField label="Search for a country..." />
+          <TextField
+            onChange={handleSearchCountry}
+            label="Search for a country..."
+            fullWidth
+          />
         </Grid>
         <Grid item md={6}>
           <FormControl fullWidth>
