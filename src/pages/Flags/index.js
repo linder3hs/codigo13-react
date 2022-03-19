@@ -25,9 +25,15 @@ const Flags = () => {
     setCountries(response);
   };
 
-  const handleRegion = (e) => {
+  const handleRegion = async (e) => {
     console.log(e.target.value);
     setRegion(e.target.value);
+    // primero debemos limpiar para poder llenarlo con la nueva informacion
+    setCountries([]);
+    const response = await getDataFromPokemon(
+      `https://restcountries.com/v2/region/${e.target.value}`
+    );
+    setCountries(response);
   };
 
   useEffect(() => {
@@ -66,7 +72,7 @@ const Flags = () => {
                   image={country.flags.svg}
                 />
                 <CardContent>
-                  <h4>{country.name}</h4>
+                  <h4>{country.name || country.name.official}</h4>
                   <p>Population: {country.population}</p>
                   <p>Region: {country.region}</p>
                   <p>Capital: {country.capital}</p>
