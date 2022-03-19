@@ -10,6 +10,7 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  CircularProgress,
 } from "@mui/material";
 import { getDataFromPokemon } from "../../service";
 
@@ -92,7 +93,7 @@ const Flags = () => {
             </Select>
           </FormControl>
         </Grid>
-        {countries.length > 0 &&
+        {countries.length > 0 ? (
           countries.map((country) => (
             <Grid item md={3} xs={12}>
               <Card>
@@ -109,7 +110,13 @@ const Flags = () => {
                 </CardContent>
               </Card>
             </Grid>
-          ))}
+          ))
+        ) : (
+          <div className="center loading">
+            <CircularProgress />
+            <h4>Cargando...</h4>
+          </div>
+        )}
       </Grid>
     </Container>
   );
