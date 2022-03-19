@@ -1,18 +1,38 @@
-import { useState, useEffect } from "react"
-import { Card, CardContent, CardMedia, Container, Grid, TextField } from "@mui/material"
-import { getDataFromPokemon } from "../../service"
+import { useState, useEffect } from "react";
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Container,
+  Grid,
+  TextField,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+} from "@mui/material";
+import { getDataFromPokemon } from "../../service";
 
 const Flags = () => {
-  const [countries, setCountries] = useState([])
+  const [countries, setCountries] = useState([]);
+
+  const [region, setRegion] = useState("");
 
   const fetchCountries = async () => {
-    const response = await getDataFromPokemon("https://restcountries.com/v2/all")
-    setCountries(response)
-  }
+    const response = await getDataFromPokemon(
+      "https://restcountries.com/v2/all"
+    );
+    setCountries(response);
+  };
+
+  const handleRegion = (e) => {
+    console.log(e.target.value);
+    setRegion(e.target.value);
+  };
 
   useEffect(() => {
-    fetchCountries()
-  }, [])
+    fetchCountries();
+  }, []);
 
   return (
     <Container>
@@ -21,10 +41,23 @@ const Flags = () => {
           <TextField label="Search for a country..." />
         </Grid>
         <Grid item md={6}>
-          <TextField label="Search for a country..." />
+          <FormControl fullWidth>
+            <InputLabel>Filter by Region</InputLabel>
+            <Select
+              label="Filter by Region"
+              value={region}
+              onChange={handleRegion}
+            >
+              <MenuItem value="Africa">Africa</MenuItem>
+              <MenuItem value="Americas">Americas</MenuItem>
+              <MenuItem value="Asia">Asia</MenuItem>
+              <MenuItem value="Europe">Europe</MenuItem>
+              <MenuItem value="Oceania">Oceania</MenuItem>
+            </Select>
+          </FormControl>
         </Grid>
-        {
-          countries.length > 0 && countries.map(country => (
+        {countries.length > 0 &&
+          countries.map((country) => (
             <Grid item md={3} xs={12}>
               <Card>
                 <CardMedia
@@ -39,13 +72,11 @@ const Flags = () => {
                   <p>Capital: {country.capital}</p>
                 </CardContent>
               </Card>
-
             </Grid>
-          ))
-        }
+          ))}
       </Grid>
     </Container>
-  )
-}
+  );
+};
 
-export default Flags
+export default Flags;
