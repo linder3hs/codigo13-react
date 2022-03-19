@@ -1,0 +1,50 @@
+.border-right {
+  border-right: 1px solid #ddd;
+  height: 100vh;
+}
+
+.img-logo {
+  width: 150px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li a {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  display: block;
+  color: #999;
+  text-decoration: none;
+}
+
+.img-profile {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 50%;
+  margin-right: 50px;
+}
+
+.gender-movie {
+  color: rgb(246, 66, 66);
+}
+
+.video {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.title {
+  font-size: 0.9em;
+  color: rgb(0, 68, 156);
+}
+
+.subtitle {
+  font-size: 0.8em;
+  color: #999;
+}
