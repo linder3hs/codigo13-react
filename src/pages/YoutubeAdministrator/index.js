@@ -58,7 +58,7 @@ const YoutubeAdministrator = () => {
           <h4>Lista de Peliculas</h4>
         </Grid>
         <Grid item md={6} sx={{ textAlign: "right" }}>
-          <MovieCreate />
+          <MovieCreate fetchMovies={fetchMovies} />
         </Grid>
       </Grid>
       <TableContainer component={Paper}>

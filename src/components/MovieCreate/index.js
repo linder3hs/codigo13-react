@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Button, Dialog, DialogContent, TextField, Grid } from "@mui/material";
+import { storeMovie } from "../../service/movies";
 
-const MovieCreate = () => {
+const MovieCreate = (props) => {
   const [open, setOpen] = useState(false);
 
   const [values, setValues] = useState({
@@ -23,6 +24,12 @@ const MovieCreate = () => {
 
   const handleOpenDialog = () => {
     setOpen(!open);
+  };
+
+  const fetchStoreMovie = async () => {
+    await storeMovie(values);
+    await props.fetchMovies();
+    handleOpenDialog();
   };
 
   return (
@@ -50,7 +57,12 @@ const MovieCreate = () => {
               />
             </Grid>
             <Grid item md={6}>
-              <TextField label="Genero" name="gender" fullWidth />
+              <TextField
+                label="Genero"
+                name="gender"
+                fullWidth
+                onChange={handleChangeInput}
+              />
             </Grid>
             <Grid item md={6}>
               <TextField
@@ -69,7 +81,9 @@ const MovieCreate = () => {
               />
             </Grid>
             <Grid item md={12}>
-              <Button variant="contained">Crear</Button>
+              <Button variant="contained" onClick={fetchStoreMovie}>
+                Crear
+              </Button>
             </Grid>
           </Grid>
         </DialogContent>
