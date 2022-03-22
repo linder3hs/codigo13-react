@@ -9,11 +9,14 @@ import {
   TableHead,
   TableRow,
   Paper,
+  Grid,
 } from "@mui/material";
 import EditRoundedIcon from "@mui/icons-material/EditRounded";
 import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
 import { getMovies, deleteItem } from "../../service/movies";
 import swal from "sweetalert";
+// components
+import MovieCreate from "../../components/MovieCreate";
 
 const YoutubeAdministrator = () => {
   const [movies, setMovies] = useState([]);
@@ -50,7 +53,14 @@ const YoutubeAdministrator = () => {
 
   return (
     <Container>
-      <h4>Lista de Peliculas</h4>
+      <Grid container spacing={3} mt={5}>
+        <Grid item md={6}>
+          <h4>Lista de Peliculas</h4>
+        </Grid>
+        <Grid item md={6} sx={{ textAlign: "right" }}>
+          <MovieCreate />
+        </Grid>
+      </Grid>
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
