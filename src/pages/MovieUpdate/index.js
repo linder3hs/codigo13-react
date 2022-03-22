@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { Grid, TextField, Button } from "@mui/material";
+import { getMovieDetail } from "../../service/movies";
 
 const MovieUpdate = () => {
+  const { id } = useParams();
+
   const [values, setValues] = useState({
     name: "",
     director: "",
@@ -19,6 +23,22 @@ const MovieUpdate = () => {
     });
   };
 
+  const fetchDetailMovie = async () => {
+    const response = await getMovieDetail(id);
+    // cuando hacemos la peticion podemos llenar a values usando setValues
+    setValues({
+      name: response.name,
+      director: response.director,
+      gender: response.gender,
+      video_link: response.video_link,
+      wallpaper: response.wallpaper,
+    });
+  };
+
+  useEffect(() => {
+    fetchDetailMovie();
+  }, []);
+
   return (
     <Grid container spacing={3}>
       <Grid item md={6}>
@@ -26,6 +46,7 @@ const MovieUpdate = () => {
           label="Nombre de la peli"
           name="name"
           fullWidth
+          value={values.name}
           onChange={handleChangeInput}
         />
       </Grid>
@@ -34,6 +55,7 @@ const MovieUpdate = () => {
           label="Nombre del director"
           name="director"
           fullWidth
+          value={values.director}
           onChange={handleChangeInput}
         />
       </Grid>
@@ -42,6 +64,7 @@ const MovieUpdate = () => {
           label="Genero"
           name="gender"
           fullWidth
+          value={values.gender}
           onChange={handleChangeInput}
         />
       </Grid>
@@ -50,6 +73,7 @@ const MovieUpdate = () => {
           label="Link del video"
           name="video_link"
           fullWidth
+          value={values.video_link}
           onChange={handleChangeInput}
         />
       </Grid>
@@ -58,6 +82,7 @@ const MovieUpdate = () => {
           label="Link de la portada"
           name="wallpaper"
           fullWidth
+          value={values.wallpaper}
           onChange={handleChangeInput}
         />
       </Grid>
