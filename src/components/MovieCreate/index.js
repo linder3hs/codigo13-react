@@ -1,12 +1,19 @@
+import { useState } from "react";
 import { Button, Dialog, DialogContent, TextField, Grid } from "@mui/material";
 
 const MovieCreate = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleOpenDialog = () => {
+    setOpen(!open);
+  };
+
   return (
     <div>
-      <Button variant="contained" color="primary">
+      <Button variant="contained" color="primary" onClick={handleOpenDialog}>
         Crear Pelicula
       </Button>
-      <Dialog open>
+      <Dialog open={open} onClose={handleOpenDialog}>
         <DialogContent>
           <Grid container spacing={3}>
             <Grid item md={6}>
