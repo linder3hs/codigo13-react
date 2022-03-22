@@ -11,6 +11,7 @@ import Home from "../pages/Home";
 import Flags from "../pages/Flags";
 import Youtube from "../pages/Youtube";
 import YoutubeAdministrator from "../pages/YoutubeAdministrator";
+import MovieUpdate from "../pages/MovieUpdate";
 
 // Nuestro Router va a ser un componente el cual se encargue de retornar
 // las rutas con su respectiva vista
@@ -25,7 +26,11 @@ const Router = () => {
         <Route
           path="/youtube/administrador"
           element={<YoutubeAdministrator />}
-        ></Route>
+        />
+        <Route
+          path="/youtube/administrador/editar/:id"
+          element={<MovieUpdate />}
+        />
       </Routes>
     </BrowserRouter>
   );

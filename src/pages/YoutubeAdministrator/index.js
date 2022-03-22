@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   Button,
   Container,
@@ -83,9 +84,12 @@ const YoutubeAdministrator = () => {
                     <a href={movie.video_link}>Ver video</a>
                   </TableCell>
                   <TableCell>
-                    <Button color="info">
-                      <EditRoundedIcon />
-                    </Button>
+                    <Link to={`/youtube/administrador/editar/${movie.id}`}>
+                      <Button color="info">
+                        <EditRoundedIcon />
+                      </Button>
+                    </Link>
+
                     <Button
                       color="error"
                       onClick={() => fetchDeleteItem(movie.id)}
