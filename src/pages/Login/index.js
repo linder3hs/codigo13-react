@@ -4,10 +4,10 @@ import bgLogin from "../../assets/bg-login.png";
 import { UserContext } from "../../Context/UserContext";
 
 const Login = () => {
-  const { user, pedidos, setUser } = useContext(UserContext);
+  const { user, storeUser } = useContext(UserContext);
 
   const handleClickLogin = () => {
-    setUser({
+    storeUser({
       name: "Juanita",
       last_name: "Cardenas",
     });
@@ -22,7 +22,7 @@ const Login = () => {
     >
       <Grid item md={6}>
         <h4>
-          {user.name} {user.last_name}
+          {user?.name} {user?.last_name}
         </h4>
         <img src={bgLogin} width={600} alt="" />
       </Grid>
