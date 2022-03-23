@@ -22,6 +22,7 @@ export const getDataFromPokemon = async (url = BASE_URL) => {
     // ahora debemos ejecutar el fetch para poder traer la informacion
     const response = await fetch(url);
     const data = await response.json();
+    console.log("data", data);
     return data;
   } catch (error) {
     console.log(error.message);

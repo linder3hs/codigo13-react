@@ -12,6 +12,8 @@ import {
   MenuItem,
   CircularProgress,
 } from "@mui/material";
+import { Link } from "react-router-dom";
+
 import { getDataFromPokemon } from "../../service";
 
 const Flags = () => {
@@ -96,19 +98,21 @@ const Flags = () => {
         {countries.length > 0 ? (
           countries.map((country) => (
             <Grid item md={3} xs={12}>
-              <Card>
-                <CardMedia
-                  component="img"
-                  height={200}
-                  image={country.flags.svg}
-                />
-                <CardContent>
-                  <h4>{country.name.official}</h4>
-                  <p>Population: {country.population}</p>
-                  <p>Region: {country.region}</p>
-                  <p>Capital: {country.capital}</p>
-                </CardContent>
-              </Card>
+              <Link to={`/flag/detail/${country.name.common}`}>
+                <Card>
+                  <CardMedia
+                    component="img"
+                    height={200}
+                    image={country.flags.svg}
+                  />
+                  <CardContent>
+                    <h4>{country.name.official}</h4>
+                    <p>Population: {country.population}</p>
+                    <p>Region: {country.region}</p>
+                    <p>Capital: {country.capital}</p>
+                  </CardContent>
+                </Card>
+              </Link>
             </Grid>
           ))
         ) : (

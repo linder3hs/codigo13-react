@@ -9,6 +9,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Flags from "../pages/Flags";
+import Detail from "../pages/Detail";
 import Youtube from "../pages/Youtube";
 import YoutubeAdministrator from "../pages/YoutubeAdministrator";
 import MovieUpdate from "../pages/MovieUpdate";
@@ -22,6 +23,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/flags" element={<Flags />} />
+        <Route path="/flag/detail/:name" element={<Detail />} />
         <Route path="/youtube" element={<Youtube />} />
         <Route
           path="/youtube/administrador"
