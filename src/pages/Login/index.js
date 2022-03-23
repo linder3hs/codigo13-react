@@ -1,7 +1,18 @@
+import { useContext } from "react";
 import { Button, Grid, Card, CardContent, TextField } from "@mui/material";
 import bgLogin from "../../assets/bg-login.png";
+import { UserContext } from "../../Context/UserContext";
 
 const Login = () => {
+  const { user, pedidos, setUser } = useContext(UserContext);
+
+  const handleClickLogin = () => {
+    setUser({
+      name: "Juanita",
+      last_name: "Cardenas",
+    });
+  };
+
   return (
     <Grid
       container
@@ -10,6 +21,9 @@ const Login = () => {
       sx={{ height: "100vh", padding: 20, backgroundColor: "#FFD885" }}
     >
       <Grid item md={6}>
+        <h4>
+          {user.name} {user.last_name}
+        </h4>
         <img src={bgLogin} width={600} alt="" />
       </Grid>
       <Grid item md={6}>
@@ -34,6 +48,7 @@ const Login = () => {
                   variant="contained"
                   fullWidth
                   size="large"
+                  onClick={handleClickLogin}
                 >
                   Iniciar Session
                 </Button>
