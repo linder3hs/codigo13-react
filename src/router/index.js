@@ -13,6 +13,7 @@ import Detail from "../pages/Detail";
 import Youtube from "../pages/Youtube";
 import YoutubeAdministrator from "../pages/YoutubeAdministrator";
 import MovieUpdate from "../pages/MovieUpdate";
+import Login from "../pages/Login";
 // Layout
 import Main from "../layouts/Main";
 
@@ -37,6 +38,7 @@ const Router = () => {
             element={<MovieUpdate />}
           />
         </Route>
+        <Route path="login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
