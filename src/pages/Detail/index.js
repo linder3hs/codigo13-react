@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { Container, Grid, Chip } from "@mui/material";
+import { useParams, useNavigate } from "react-router-dom";
+import { Container, Grid, Chip, Button } from "@mui/material";
 import { getDataFromPokemon } from "../../service";
+import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
 
 const Detail = () => {
   const { name } = useParams();
+
+  const history = useNavigate();
 
   const [country, setCountry] = useState({});
 
@@ -26,6 +29,10 @@ const Detail = () => {
 
   return (
     <Container>
+      <Button variant="outlined" onClick={() => history(-1)}>
+        <KeyboardBackspaceRoundedIcon />
+        Back
+      </Button>
       {Object.keys(country).length > 0 && (
         <Grid
           container
