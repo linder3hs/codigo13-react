@@ -1,21 +1,22 @@
 import { Link, Outlet } from "react-router-dom";
+import "./main.css";
 
 const Main = () => {
   return (
     <div>
-      <nav>
+      <nav className="main-nav">
         <div>
-          <img src="" alt="" />
+          <h1>Logo</h1>
         </div>
         <div>
-          <ul>
-            <li>
+          <ul className="ul-nav">
+            <li className="li-nav">
               <Link to="/">Pokemon</Link>
             </li>
-            <li>
+            <li className="li-nav">
               <Link to="/flags">Banderas</Link>
             </li>
-            <li>
+            <li className="li-nav">
               <Link to="/youtube">Youtube</Link>
             </li>
           </ul>
