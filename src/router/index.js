@@ -13,6 +13,8 @@ import Detail from "../pages/Detail";
 import Youtube from "../pages/Youtube";
 import YoutubeAdministrator from "../pages/YoutubeAdministrator";
 import MovieUpdate from "../pages/MovieUpdate";
+// Layout
+import Main from "../layouts/Main";
 
 // Nuestro Router va a ser un componente el cual se encargue de retornar
 // las rutas con su respectiva vista
@@ -21,18 +23,20 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/flags" element={<Flags />} />
-        <Route path="/flag/detail/:name" element={<Detail />} />
-        <Route path="/youtube" element={<Youtube />} />
-        <Route
-          path="/youtube/administrador"
-          element={<YoutubeAdministrator />}
-        />
-        <Route
-          path="/youtube/administrador/editar/:id"
-          element={<MovieUpdate />}
-        />
+        <Route element={<Main />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/flags" element={<Flags />} />
+          <Route path="/flag/detail/:name" element={<Detail />} />
+          <Route path="/youtube" element={<Youtube />} />
+          <Route
+            path="/youtube/administrador"
+            element={<YoutubeAdministrator />}
+          />
+          <Route
+            path="/youtube/administrador/editar/:id"
+            element={<MovieUpdate />}
+          />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

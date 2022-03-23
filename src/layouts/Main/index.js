@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const Main = () => {
   return (
@@ -21,6 +21,8 @@ const Main = () => {
           </ul>
         </div>
       </nav>
+      {/* Esto va recibir los componentes hijos */}
+      <Outlet />
     </div>
   );
 };
