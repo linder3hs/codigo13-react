@@ -16,6 +16,7 @@ import MovieUpdate from "../pages/MovieUpdate";
 import Login from "../pages/Login";
 // Layout
 import Main from "../layouts/Main";
+import Private from "../layouts/Private";
 
 // Nuestro Router va a ser un componente el cual se encargue de retornar
 // las rutas con su respectiva vista
@@ -24,11 +25,16 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
+        {/* ROUTE DEL MAIN (PUBLICAS) */}
+        <Route path="login" element={<Login />} />
         <Route element={<Main />}>
           <Route path="/" element={<Home />} />
           <Route path="/flags" element={<Flags />} />
           <Route path="/flag/detail/:name" element={<Detail />} />
           <Route path="/youtube" element={<Youtube />} />
+        </Route>
+        {/* ROUTE DEL ADMIN (PRIVADAS) */}
+        <Route element={<Private />}>
           <Route
             path="/youtube/administrador"
             element={<YoutubeAdministrator />}
@@ -38,7 +44,6 @@ const Router = () => {
             element={<MovieUpdate />}
           />
         </Route>
-        <Route path="login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
