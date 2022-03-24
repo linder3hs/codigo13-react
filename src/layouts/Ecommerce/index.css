@@ -14,3 +14,23 @@
   display: flex;
   align-items: center;
 }
+
+.ul-tags {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 45px;
+  margin: 0;
+}
+
+.ul-tags > li a {
+  color: #1f2937;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.fresh {
+  background-color: #eb5757;
+  color: #fff;
+  padding: 3px;
+}
