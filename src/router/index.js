@@ -14,6 +14,7 @@ import Youtube from "../pages/Youtube";
 import YoutubeAdministrator from "../pages/YoutubeAdministrator";
 import MovieUpdate from "../pages/MovieUpdate";
 import Login from "../pages/Login";
+import PopularWeek from "../pages/PopularWeek";
 // Layout
 import Main from "../layouts/Main";
 import Private from "../layouts/Private";
@@ -28,11 +29,15 @@ const Router = () => {
       <Routes>
         {/* ROUTE DEL MAIN (PUBLICAS) */}
         <Route path="login" element={<Login />} />
-        <Route element={<Ecommerce />}>
+        <Route element={<Main />}>
           <Route path="/" element={<Home />} />
           <Route path="/flags" element={<Flags />} />
           <Route path="/flag/detail/:name" element={<Detail />} />
           <Route path="/youtube" element={<Youtube />} />
+        </Route>
+        {/* ROUTE para ecommerce */}
+        <Route element={<Ecommerce />}>
+          <Route path="ecommerce" element={<PopularWeek />} />
         </Route>
         {/* ROUTE DEL ADMIN (PRIVADAS) */}
         <Route element={<Private />}>
