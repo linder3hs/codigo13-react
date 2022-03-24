@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { Navigate } from "react-router-dom";
 import { Button, Grid, Card, CardContent, TextField } from "@mui/material";
 import bgLogin from "../../assets/bg-login.png";
 import { UserContext } from "../../Context/UserContext";
@@ -33,6 +34,8 @@ const Login = () => {
         cel: "999999",
       };
       storeUser(user);
+
+      window.location.href = "/youtube/administrador";
     } else {
       swal({
         icon: "error",
