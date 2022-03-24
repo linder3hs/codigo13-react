@@ -1,4 +1,5 @@
 import { Grid, TextField } from "@mui/material";
+import { Outlet } from "react-router-dom";
 import ShoppingBasketRoundedIcon from "@mui/icons-material/ShoppingBasketRounded";
 import logo from "../../assets/logo.svg";
 import "./index.css";
@@ -86,6 +87,7 @@ const Ecommerce = () => {
           </li>
         </ul>
       </div>
+      <Outlet />
     </div>
   );
 };
