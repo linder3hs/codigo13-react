@@ -1,20 +1,27 @@
 import { Grid, TextField } from "@mui/material";
 import ShoppingBasketRoundedIcon from "@mui/icons-material/ShoppingBasketRounded";
 import logo from "../../assets/logo.svg";
+import "./index.css";
 
 const Ecommerce = () => {
   return (
     <div>
-      <nav>
-        <Grid container>
+      <nav className="nav-ecommerce">
+        <Grid container alignItems="center" ml={5} mr={5}>
           <Grid item md={4}>
             <img src={logo} alt="" />
           </Grid>
           <Grid item md={4}>
-            <TextField label="Search for an item..." />
+            <TextField
+              variant="standard"
+              sx={{
+                width: 250,
+              }}
+              label="Search for an item..."
+            />
           </Grid>
           <Grid item md={4}>
-            <ul>
+            <ul className="ul-ecommerce">
               <li>
                 <a href="/">Store</a>
               </li>
@@ -24,9 +31,10 @@ const Ecommerce = () => {
               <li>
                 <a href="/">Wish List</a>
               </li>
-              <li>
+              <li className="li-basket">
                 <a href="/">
-                  Basket <ShoppingBasketRoundedIcon />
+                  Basket &nbsp;
+                  <ShoppingBasketRoundedIcon />
                 </a>
               </li>
             </ul>

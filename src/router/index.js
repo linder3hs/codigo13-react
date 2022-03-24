@@ -17,6 +17,7 @@ import Login from "../pages/Login";
 // Layout
 import Main from "../layouts/Main";
 import Private from "../layouts/Private";
+import Ecommerce from "../layouts/Ecommerce";
 
 // Nuestro Router va a ser un componente el cual se encargue de retornar
 // las rutas con su respectiva vista
@@ -27,7 +28,7 @@ const Router = () => {
       <Routes>
         {/* ROUTE DEL MAIN (PUBLICAS) */}
         <Route path="login" element={<Login />} />
-        <Route element={<Main />}>
+        <Route element={<Ecommerce />}>
           <Route path="/" element={<Home />} />
           <Route path="/flags" element={<Flags />} />
           <Route path="/flag/detail/:name" element={<Detail />} />
