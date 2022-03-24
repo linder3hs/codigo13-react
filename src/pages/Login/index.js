@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Button, Grid, Card, CardContent, TextField } from "@mui/material";
 import bgLogin from "../../assets/bg-login.png";
 import { UserContext } from "../../Context/UserContext";
+import swal from "sweetalert";
 
 const Login = () => {
   const { storeUser } = useContext(UserContext);
@@ -21,7 +22,24 @@ const Login = () => {
   };
 
   const handleClickLogin = () => {
-    storeUser(userData);
+    if (userData.email === "pepe@gmail.com" && userData.password === "123456") {
+      const user = {
+        nombre: "Pepe",
+        apellido: "Zapata",
+        correo: userData.email,
+        edad: 21,
+        trabajo: "Software Developer",
+        dni: "12345678",
+        cel: "999999",
+      };
+      storeUser(user);
+    } else {
+      swal({
+        icon: "error",
+        title: "Error",
+        text: "Email or Password incorrect",
+      });
+    }
   };
 
   return (
@@ -56,6 +74,7 @@ const Login = () => {
                 <TextField
                   label="Password"
                   fullWidth
+                  type="password"
                   name="password"
                   onChange={handleChangeInput}
                 />
