@@ -32,6 +32,13 @@ export const UserProvider = (props) => {
     // }
   };
 
+  const deleteElementFromBasket = (id) => {
+    const productIndex = basket.findIndex((bas) => bas.id === id);
+    const newBasket = basket.splice(productIndex, 1);
+    setBasket(newBasket);
+    localStorage.setItem("basket", JSON.stringify(newBasket));
+  };
+
   return (
     <UserContext.Provider value={{ user, storeUser, basket, storeBasket }}>
       {props.children}
