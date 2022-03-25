@@ -23,3 +23,9 @@
 .button-basket {
   text-transform: capitalize !important;
 }
+
+.product-photo {
+  width: 297px;
+  height: 400px;
+  object-fit: cover;
+}

@@ -24,7 +24,7 @@ const PopularWeek = () => {
         {clothes.length > 0 &&
           clothes.map((clothe) => (
             <Grid item md={3} sm={6} xs={12}>
-              <img width={297} src={clothe.photo} alt="" />
+              <img className="product-photo" src={clothe.photo} alt="" />
               <div className="description">
                 <p>{clothe.name}</p>
                 <p className="container-buttons">
