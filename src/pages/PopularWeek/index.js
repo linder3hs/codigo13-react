@@ -4,6 +4,7 @@ import foto1 from "../../assets/foto1.png";
 import foto2 from "../../assets/foto2.png";
 import foto3 from "../../assets/foto3.png";
 import foto4 from "../../assets/foto4.png";
+import "./index.css";
 
 const PopularWeek = () => {
   const [clothes, setClothes] = useState([
@@ -34,19 +35,24 @@ const PopularWeek = () => {
   ]);
 
   return (
-    <Container>
-      <Grid container spacing={3}>
+    <Container maxWidth="xl">
+      <Grid container spacing={3} mt={5}>
+        <Grid item md={12}>
+          <h2 className="center">POPULAR WEEK</h2>
+        </Grid>
         {clothes.length > 0 &&
           clothes.map((clothe) => (
             <Grid item md={3}>
-              <img width={300} src={clothe.photo} alt="" />
-              <p>{clothe.name}</p>
-              <p>
-                <span>
-                  {clothe.price_with_disscount} {clothe.price}
-                </span>
-                <span>+ Add to Basket</span>
-              </p>
+              <img width={297} src={clothe.photo} alt="" />
+              <div className="description">
+                <p>{clothe.name}</p>
+                <p>
+                  <span>
+                    {clothe.price_with_disscount} {clothe.price}
+                  </span>
+                  <span>+ Add to Basket</span>
+                </p>
+              </div>
             </Grid>
           ))}
       </Grid>
