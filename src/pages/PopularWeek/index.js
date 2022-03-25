@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, Button } from "@mui/material";
 import foto1 from "../../assets/foto1.png";
 import foto2 from "../../assets/foto2.png";
 import foto3 from "../../assets/foto3.png";
@@ -46,11 +46,10 @@ const PopularWeek = () => {
               <img width={297} src={clothe.photo} alt="" />
               <div className="description">
                 <p>{clothe.name}</p>
-                <p>
-                  <span>
-                    {clothe.price_with_disscount} {clothe.price}
-                  </span>
-                  <span>+ Add to Basket</span>
+                <p className="container-buttons">
+                  <span className="price">$ {clothe.price_with_disscount}</span>
+                  <span className="price-tacched">$ {clothe.price}</span>
+                  <Button className="button-basket">+ Add to Basket</Button>
                 </p>
               </div>
             </Grid>
