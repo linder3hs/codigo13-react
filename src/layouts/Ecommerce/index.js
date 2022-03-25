@@ -1,4 +1,4 @@
-import { Grid, TextField } from "@mui/material";
+import { Badge, Grid, TextField } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import ShoppingBasketRoundedIcon from "@mui/icons-material/ShoppingBasketRounded";
 import logo from "../../assets/logo.svg";
@@ -35,7 +35,9 @@ const Ecommerce = () => {
               <li className="li-basket">
                 <a href="/">
                   Basket &nbsp;
-                  <ShoppingBasketRoundedIcon />
+                  <Badge badgeContent={14} color="primary">
+                    <ShoppingBasketRoundedIcon />
+                  </Badge>
                 </a>
               </li>
             </ul>
