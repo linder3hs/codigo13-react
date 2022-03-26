@@ -6,7 +6,8 @@ import { UserContext } from "../../Context/UserContext";
 import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
 
 const PopularWeek = () => {
-  const { basket, storeBasket } = useContext(UserContext);
+  const { basket, storeBasket, deleteElementFromBasket } =
+    useContext(UserContext);
 
   const [clothes, setClothes] = useState([]);
 
@@ -28,7 +29,10 @@ const PopularWeek = () => {
     return (
       <>
         {findProduct ? (
-          <Button color="error">
+          <Button
+            color="error"
+            onClick={() => deleteElementFromBasket(clothe.id)}
+          >
             <DeleteForeverRoundedIcon />
           </Button>
         ) : (
