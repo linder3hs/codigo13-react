@@ -19,6 +19,8 @@ export const UserProvider = (props) => {
   // vamos a guardar el objeto de cada producto
   const storeBasket = (product) => {
     // basket sera un array de objetos
+    // vamos a darle la propiedad quantity a lo que es product
+    product.quantity = 1;
     setBasket([...basket, product]);
     localStorage.setItem("basket", JSON.stringify([...basket, product]));
     // if (basket === null) {
