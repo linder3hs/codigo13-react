@@ -1,9 +1,24 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Container, Grid, Button, Card, CardContent } from "@mui/material";
 import { UserContext } from "../../Context/UserContext";
 
 const BasketView = () => {
   const { basket } = useContext(UserContext);
+
+  const [total, setTotal] = useState(0);
+
+  const calculatePrice = () => {
+    let sum = 0;
+    basket.forEach((product) => {
+      const finalPrice = +product.quantity * +product.price_sale;
+      sum += finalPrice;
+    });
+    setTotal(sum);
+  };
+
+  useEffect(() => {
+    calculatePrice();
+  }, []);
 
   return (
     <Container maxWidth="xl">
@@ -43,7 +58,17 @@ const BasketView = () => {
           </Grid>
         </Grid>
         <Grid item md={4}>
-          <h4>Total precio</h4>
+          <Card>
+            <CardContent>
+              <h4>Resumen de tu orden</h4>
+              <p>
+                Sub-total productos <span>{total}</span>
+              </p>
+              <Button variant="contained" size="large">
+                Realizar Pago
+              </Button>
+            </CardContent>
+          </Card>
         </Grid>
       </Grid>
     </Container>
