@@ -5,7 +5,8 @@ import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
 
 const BasketView = () => {
-  const { basket, addOrRemoveProduct } = useContext(UserContext);
+  const { basket, addOrRemoveProduct, deleteElementFromBasket } =
+    useContext(UserContext);
 
   const [total, setTotal] = useState(0);
 
@@ -15,7 +16,7 @@ const BasketView = () => {
       const finalPrice = +product.quantity * +product.price_sale;
       sum += finalPrice;
     });
-    setTotal(sum);
+    setTotal(sum.toFixed(2));
   };
 
   useEffect(() => {
@@ -69,6 +70,11 @@ const BasketView = () => {
                             <AddRoundedIcon />
                           </Button>
                         </div>
+                        <Button
+                          onClick={() => deleteElementFromBasket(product.id)}
+                        >
+                          Eliminar
+                        </Button>
                       </Grid>
                     </Grid>
                   </CardContent>
