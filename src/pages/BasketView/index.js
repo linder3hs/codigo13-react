@@ -20,7 +20,9 @@ const BasketView = () => {
 
   useEffect(() => {
     calculatePrice();
-  }, []);
+    // Esto va a indicar que si la variable basket cambiar de valor
+    // esto automaticamente va a llamar a la funcion que esta dentro del useEffect
+  }, [basket]);
 
   return (
     <Container maxWidth="xl">
