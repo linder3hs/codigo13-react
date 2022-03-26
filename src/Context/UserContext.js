@@ -40,9 +40,40 @@ export const UserProvider = (props) => {
     localStorage.setItem("basket", JSON.stringify(products));
   };
 
+  const addOrRemoveProduct = (id, add) => {
+    // este id nos vas a servir para poder encontrar el product
+    // add es un bool por si add es true entonces suma sino resta
+    const products = basket.map((product) => {
+      // estamos buscando al producto que tenga el id que estamos recibiendo
+      if (product.id === id) {
+        if (add) {
+          product.quantity += 1;
+        } else {
+          // debemos validar que la cantidad minima para poder restar 1
+          if (product.quantity > 1) {
+            product.quantity -= 1;
+          }
+        }
+      }
+      // por ende despues del if el elemement quantity ha sido alterado
+      return {
+        ...product,
+      };
+    });
+    setBasket(products);
+    localStorage.setItem("basket", JSON.stringify(products));
+  };
+
   return (
     <UserContext.Provider
-      value={{ user, storeUser, basket, storeBasket, deleteElementFromBasket }}
+      value={{
+        user,
+        storeUser,
+        basket,
+        storeBasket,
+        deleteElementFromBasket,
+        addOrRemoveProduct,
+      }}
     >
       {props.children}
     </UserContext.Provider>

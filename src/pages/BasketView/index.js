@@ -5,7 +5,7 @@ import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
 
 const BasketView = () => {
-  const { basket } = useContext(UserContext);
+  const { basket, addOrRemoveProduct } = useContext(UserContext);
 
   const [total, setTotal] = useState(0);
 
@@ -51,14 +51,20 @@ const BasketView = () => {
                       </Grid>
                       <Grid item md={3}>
                         <div>
-                          <Button>
-                            <AddRoundedIcon />
+                          <Button
+                            onClick={() =>
+                              addOrRemoveProduct(product.id, false)
+                            }
+                          >
+                            <RemoveRoundedIcon />
                           </Button>
                           &nbsp;&nbsp;
                           {product.quantity}
                           &nbsp;&nbsp;
-                          <Button>
-                            <RemoveRoundedIcon />
+                          <Button
+                            onClick={() => addOrRemoveProduct(product.id, true)}
+                          >
+                            <AddRoundedIcon />
                           </Button>
                         </div>
                       </Grid>
