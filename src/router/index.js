@@ -15,6 +15,7 @@ import YoutubeAdministrator from "../pages/YoutubeAdministrator";
 import MovieUpdate from "../pages/MovieUpdate";
 import Login from "../pages/Login";
 import PopularWeek from "../pages/PopularWeek";
+import BasketView from "../pages/BasketView";
 // Layout
 import Main from "../layouts/Main";
 import Private from "../layouts/Private";
@@ -38,6 +39,7 @@ const Router = () => {
         {/* ROUTE para ecommerce */}
         <Route element={<Ecommerce />}>
           <Route path="ecommerce" element={<PopularWeek />} />
+          <Route path="ecommerce/basket" element={<BasketView />} />
         </Route>
         {/* ROUTE DEL ADMIN (PRIVADAS) */}
         <Route element={<Private />}>
