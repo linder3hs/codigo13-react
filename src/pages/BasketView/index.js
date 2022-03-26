@@ -1,6 +1,8 @@
 import { useContext, useState, useEffect } from "react";
 import { Container, Grid, Button, Card, CardContent } from "@mui/material";
 import { UserContext } from "../../Context/UserContext";
+import AddRoundedIcon from "@mui/icons-material/AddRounded";
+import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
 
 const BasketView = () => {
   const { basket } = useContext(UserContext);
@@ -48,7 +50,17 @@ const BasketView = () => {
                         <p>$ {product.price_sale}</p>
                       </Grid>
                       <Grid item md={3}>
-                        <h4>{product.quantity}</h4>
+                        <div>
+                          <Button>
+                            <AddRoundedIcon />
+                          </Button>
+                          &nbsp;&nbsp;
+                          {product.quantity}
+                          &nbsp;&nbsp;
+                          <Button>
+                            <RemoveRoundedIcon />
+                          </Button>
+                        </div>
                       </Grid>
                     </Grid>
                   </CardContent>
@@ -62,7 +74,7 @@ const BasketView = () => {
             <CardContent>
               <h4>Resumen de tu orden</h4>
               <p>
-                Sub-total productos <span>{total}</span>
+                Sub-total productos <span>$ {total}</span>
               </p>
               <Button variant="contained" size="large">
                 Realizar Pago
