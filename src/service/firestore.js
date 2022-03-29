@@ -47,8 +47,8 @@ export const storeProductClothe = async (product) => {
 };
 
 // actualizar un datos en firebase
-export const updateProductClothe = async (id, product) => {
-  const productRef = doc(db, "product_clothes", id);
+export const updateProductClothe = async (product) => {
+  const productRef = doc(db, "product_clothes", product.id);
 
   await updateDoc(productRef, product);
 };
