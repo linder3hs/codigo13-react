@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
-import { Navigate } from "react-router-dom";
 import { Button, Grid, Card, CardContent, TextField } from "@mui/material";
 import bgLogin from "../../assets/bg-login.png";
 import { UserContext } from "../../Context/UserContext";
+// si tenemos 2 funciones con el mismo nombre podemos usar un alias en el import
+import { storeUser as storeUserFirebase } from "../../service/firestore";
 import swal from "sweetalert";
 
 const Login = () => {
@@ -34,8 +35,8 @@ const Login = () => {
         cel: "999999",
       };
       storeUser(user);
-
-      window.location.href = "/youtube/administrador";
+      storeUserFirebase(userData.email, userData.password);
+      // window.location.href = "/youtube/administrador";
     } else {
       swal({
         icon: "error",
