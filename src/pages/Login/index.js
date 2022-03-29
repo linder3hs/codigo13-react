@@ -3,7 +3,10 @@ import { Button, Grid, Card, CardContent, TextField } from "@mui/material";
 import bgLogin from "../../assets/bg-login.png";
 import { UserContext } from "../../Context/UserContext";
 // si tenemos 2 funciones con el mismo nombre podemos usar un alias en el import
-import { storeUser as storeUserFirebase } from "../../service/firestore";
+import {
+  storeUser as storeUserFirebase,
+  loginUser,
+} from "../../service/firestore";
 import swal from "sweetalert";
 
 const Login = () => {
@@ -23,15 +26,34 @@ const Login = () => {
     });
   };
 
-  const handleClickLogin = () => {
+  const handleClickLogin = async () => {
     // vamos hacer una funcion que se encargue de poder hacer login
     // ahora si el usuario con el que estamos login no existe lo creamos
     // como nuevo usuario
-    const userFromFirebase = storeUserFirebase(
-      userData.email,
-      userData.password
-    );
-    storeUser(userFromFirebase.user);
+    /**
+     * Primero vamos a intentar hacer login el usuario
+     */
+    const { email, password } = userData;
+    let response = await loginUser(email, password);
+    console.log(response);
+    if (!response.ok) {
+      // si esto es falso el usuario no existe por ende lo vamos a crear
+      response = await storeUserFirebase(email, password);
+
+      if (!response.ok) {
+        swal({
+          title: "Error",
+          text: response.data,
+          icon: "error",
+        });
+
+        return;
+      }
+    }
+    // recuerden que despues del login o el createUser debemos guardar al usuario
+    //  en userContext
+    storeUser(response.data.user);
+    window.location.href = "/youtube/administrador";
   };
 
   return (
