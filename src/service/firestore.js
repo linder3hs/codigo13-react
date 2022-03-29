@@ -39,8 +39,7 @@ export const getProductClothes = async () => {
 // ojo: vamos a recibir como parametro un objeto que contenga
 // la informacion del producto que estamos creado
 export const storeProductClothe = async (product) => {
-  await setDoc(
-    doc(db, "product_clothes", uuidv4().replaceAll("-", "")),
-    product
-  );
+  const id = uuidv4().replaceAll("-", "");
+  product.id = id;
+  await setDoc(doc(db, "product_clothes", id), product);
 };
