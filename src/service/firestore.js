@@ -5,6 +5,8 @@ import {
   getDocs,
   doc,
   setDoc,
+  updateDoc,
+  deleteDoc,
 } from "firebase/firestore/lite";
 import { v4 as uuidv4 } from "uuid";
 
@@ -42,4 +44,16 @@ export const storeProductClothe = async (product) => {
   const id = uuidv4().replaceAll("-", "");
   product.id = id;
   await setDoc(doc(db, "product_clothes", id), product);
+};
+
+// actualizar un datos en firebase
+export const updateProductClothe = async (id, product) => {
+  const productRef = doc(db, "product_clothes", id);
+
+  await updateDoc(productRef, product);
+};
+
+// eliminar un registros de la db
+export const deleteProductClothe = async (id) => {
+  await deleteDoc(doc(db, "product_clothes", id));
 };
