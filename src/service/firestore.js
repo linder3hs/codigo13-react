@@ -6,6 +6,7 @@ import {
   doc,
   setDoc,
 } from "firebase/firestore/lite";
+import { v4 as uuidv4 } from "uuid";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD4O5g7loVbjNvJKw0KRb1eH9N_aTca5Tw",
@@ -38,5 +39,8 @@ export const getProductClothes = async () => {
 // ojo: vamos a recibir como parametro un objeto que contenga
 // la informacion del producto que estamos creado
 export const storeProductClothe = async (product) => {
-  await setDoc(doc(db, "product_clothes", product.name), product);
+  await setDoc(
+    doc(db, "product_clothes", uuidv4().replaceAll("-", "")),
+    product
+  );
 };
