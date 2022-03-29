@@ -12,6 +12,7 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { v4 as uuidv4 } from "uuid";
 
@@ -66,6 +67,26 @@ export const deleteProductClothe = async (id) => {
 // vamos a crear una funcion qu reciba un email y password
 // y cree un cuenta en firebase
 const auth = getAuth();
+
+// podemos crear una funcion que nos retorne el usuario actual
+export const getUserFromFirebase = () => {
+  return auth.currentUser;
+};
+
+export const updateUserProfile = async (profile) => {
+  try {
+    await updateProfile(auth.currentUser, profile);
+    return {
+      ok: true,
+      data: "success",
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      data: error.message,
+    };
+  }
+};
 
 export const storeUser = async (email, password) => {
   try {
