@@ -16,6 +16,7 @@ import MovieUpdate from "../pages/MovieUpdate";
 import Login from "../pages/Login";
 import PopularWeek from "../pages/PopularWeek";
 import BasketView from "../pages/BasketView";
+import CreateProduct from "../pages/CreateProduct";
 // Layout
 import Main from "../layouts/Main";
 import Private from "../layouts/Private";
@@ -51,6 +52,7 @@ const Router = () => {
             path="/youtube/administrador/editar/:id"
             element={<MovieUpdate />}
           />
+          <Route path="/ecommerce/create" element={<CreateProduct />} />
         </Route>
       </Routes>
     </BrowserRouter>
