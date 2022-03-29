@@ -8,7 +8,11 @@ import {
   updateDoc,
   deleteDoc,
 } from "firebase/firestore/lite";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { v4 as uuidv4 } from "uuid";
 
 const firebaseConfig = {
@@ -67,9 +71,31 @@ export const storeUser = async (email, password) => {
   try {
     const user = await createUserWithEmailAndPassword(auth, email, password);
     console.log(user);
-    return user;
+    return {
+      ok: true,
+      data: user,
+    };
   } catch (error) {
     console.log(error.message);
-    return error;
+    return {
+      ok: false,
+      data: error.message,
+    };
+  }
+};
+
+export const loginUser = async (email, password) => {
+  try {
+    const user = await signInWithEmailAndPassword(auth, email, password);
+
+    return {
+      ok: true,
+      data: user,
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      data: error.message,
+    };
   }
 };

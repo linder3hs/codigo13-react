@@ -24,26 +24,14 @@ const Login = () => {
   };
 
   const handleClickLogin = () => {
-    if (userData.email === "pepe@gmail.com" && userData.password === "123456") {
-      const user = {
-        nombre: "Pepe",
-        apellido: "Zapata",
-        correo: userData.email,
-        edad: 21,
-        trabajo: "Software Developer",
-        dni: "12345678",
-        cel: "999999",
-      };
-      storeUser(user);
-      storeUserFirebase(userData.email, userData.password);
-      // window.location.href = "/youtube/administrador";
-    } else {
-      swal({
-        icon: "error",
-        title: "Error",
-        text: "Email or Password incorrect",
-      });
-    }
+    // vamos hacer una funcion que se encargue de poder hacer login
+    // ahora si el usuario con el que estamos login no existe lo creamos
+    // como nuevo usuario
+    const userFromFirebase = storeUserFirebase(
+      userData.email,
+      userData.password
+    );
+    storeUser(userFromFirebase.user);
   };
 
   return (
