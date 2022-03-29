@@ -1,5 +1,11 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  doc,
+  setDoc,
+} from "firebase/firestore/lite";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD4O5g7loVbjNvJKw0KRb1eH9N_aTca5Tw",
@@ -25,4 +31,12 @@ export const getProductClothes = async () => {
   // paso 3: Crear un arreglo que guarde los documentos que estamos obteniendo
   const clothes = documentClothes.docs.map((doc) => doc.data());
   return clothes;
+};
+
+// debemos crear una funcion que se encargue de poder crear
+// elementos en nuestra base de datos
+// ojo: vamos a recibir como parametro un objeto que contenga
+// la informacion del producto que estamos creado
+export const storeProductClothe = async (product) => {
+  await setDoc(doc(db, "product_clothes", product.name), product);
 };

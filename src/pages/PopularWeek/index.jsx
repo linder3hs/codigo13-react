@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { Container, Grid, Button } from "@mui/material";
 import "./index.css";
-import { getProductClothes } from "../../service/firestore";
+import { getProductClothes, storeProductClothe } from "../../service/firestore";
 import { UserContext } from "../../Context/UserContext";
 import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
 
