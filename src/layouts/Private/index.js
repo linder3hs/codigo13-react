@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { UserContext } from "../../Context/UserContext";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, Link } from "react-router-dom";
+import { Button } from "@mui/material";
 
 const Private = () => {
   const { user } = useContext(UserContext);
@@ -11,7 +12,14 @@ const Private = () => {
     return <Navigate to="/login" />;
   }
 
-  return <Outlet />;
+  return (
+    <>
+      <Link to="/perfil">
+        <Button variant="outlined">Perfil</Button>
+      </Link>
+      <Outlet />
+    </>
+  );
 };
 
 export default Private;

@@ -17,6 +17,7 @@ import Login from "../pages/Login";
 import PopularWeek from "../pages/PopularWeek";
 import BasketView from "../pages/BasketView";
 import CreateProduct from "../pages/CreateProduct";
+import Profile from "../pages/Profile";
 // Layout
 import Main from "../layouts/Main";
 import Private from "../layouts/Private";
@@ -53,6 +54,7 @@ const Router = () => {
             element={<MovieUpdate />}
           />
           <Route path="/ecommerce/create" element={<CreateProduct />} />
+          <Route path="/perfil" element={<Profile />} />
         </Route>
       </Routes>
     </BrowserRouter>
