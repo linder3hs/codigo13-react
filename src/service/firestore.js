@@ -8,6 +8,7 @@ import {
   updateDoc,
   deleteDoc,
 } from "firebase/firestore/lite";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { v4 as uuidv4 } from "uuid";
 
 const firebaseConfig = {
@@ -56,4 +57,19 @@ export const updateProductClothe = async (product) => {
 // eliminar un registros de la db
 export const deleteProductClothe = async (id) => {
   await deleteDoc(doc(db, "product_clothes", id));
+};
+
+// vamos a crear una funcion qu reciba un email y password
+// y cree un cuenta en firebase
+const auth = getAuth();
+
+export const storeUser = async (email, password) => {
+  try {
+    const user = createUserWithEmailAndPassword(auth, email, password);
+    console.log(user);
+    return user;
+  } catch (error) {
+    console.log(error.message);
+    return error;
+  }
 };
