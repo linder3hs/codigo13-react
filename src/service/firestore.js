@@ -66,12 +66,7 @@ export const deleteProductClothe = async (id) => {
 
 // vamos a crear una funcion qu reciba un email y password
 // y cree un cuenta en firebase
-const auth = getAuth();
-
-// podemos crear una funcion que nos retorne el usuario actual
-export const getUserFromFirebase = () => {
-  return auth.currentUser;
-};
+export const auth = getAuth();
 
 export const updateUserProfile = async (profile) => {
   try {
