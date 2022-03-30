@@ -15,6 +15,7 @@ const Home = () => {
       },
     },
   };
+
   return (
     <Container>
       <Grid>
@@ -23,7 +24,21 @@ const Home = () => {
           options={chartData.options}
           series={chartData.series}
           type="bar"
-          height={400}
+          height={500}
+        />
+        <Chart
+          options={chartData.options}
+          series={chartData.series}
+          type="area"
+          height={500}
+        />
+        <Chart
+          options={{
+            labels: ["A", "B", "C", "D", "E"],
+          }}
+          series={[44, 55, 41, 17, 15]}
+          type="donut"
+          width={300}
         />
       </Grid>
     </Container>
