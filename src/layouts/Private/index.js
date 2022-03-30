@@ -1,7 +1,19 @@
 import { useContext } from "react";
 import { UserContext } from "../../Context/UserContext";
 import { Navigate, Outlet, Link } from "react-router-dom";
-import { Box, Grid } from "@mui/material";
+import {
+  Box,
+  Grid,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+} from "@mui/material";
+import codigoLogo from "../../assets/codigo-logo.png";
+import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
+import OndemandVideoRoundedIcon from "@mui/icons-material/OndemandVideoRounded";
+import AddBusinessRoundedIcon from "@mui/icons-material/AddBusinessRounded";
+import "./index.css";
 
 const Private = () => {
   const { user } = useContext(UserContext);
@@ -17,73 +29,38 @@ const Private = () => {
       <Grid container spacing={3}>
         <Grid item md={1.5} className="border-right">
           <div className="m-5">
-            <img
-              src="https://1000marcas.net/wp-content/uploads/2020/02/YouTube-logo.png"
-              className="img-fluid img-logo"
-              alt="logo"
-            />
-            <div className="mt-5">
-              <h6>MENU</h6>
-              <ul>
-                <li>
-                  <a href="/">
-                    <i className="fa-solid fa-house"></i>&nbsp;Home
-                  </a>
-                </li>
-                <li>
-                  <a href="/">
-                    <i className="fa-solid fa-fire"></i>&nbsp;Trending
-                  </a>
-                </li>
-                <li>
-                  <a href="/">
-                    <i className="fa-brands fa-youtube"></i>&nbsp;Subscriptions
-                  </a>
-                </li>
-                <li>
-                  <a href="/">
-                    <i className="fa-solid fa-podcast"></i>&nbsp;Live
-                  </a>
-                </li>
-              </ul>
-              <h6 className="mt-5">LIBRARY</h6>
-              <ul>
-                <li>
-                  <a href="/">
-                    <i className="fa-solid fa-clock"></i>&nbsp;History
-                  </a>
-                </li>
-                <li>
-                  <a href="/">
-                    <i className="fa-solid fa-barcode"></i>&nbsp;Queue
-                  </a>
-                </li>
-                <li>
-                  <a href="/">
-                    <i className="fa-solid fa-heart"></i>&nbsp;Likes
-                  </a>
-                </li>
-              </ul>
+            <div className="container-admin-logo">
+              <div>
+                <img src={codigoLogo} width={50} alt="logo" />
+              </div>
+              &nbsp;&nbsp;
+              <div>
+                <h4>Codigo Admin</h4>
+                <p>Administrador de codigo</p>
+              </div>
+            </div>
 
-              <h6 className="mt-5">EXTRA</h6>
-              <ul>
-                <li>
-                  <a href="/">
-                    <i className="fa-solid fa-circle-question"></i>
-                    &nbsp;Settings
-                  </a>
-                </li>
-                <li>
-                  <a href="/">
-                    <i className="fa-solid fa-gear"></i>&nbsp;Help
-                  </a>
-                </li>
-                <li>
-                  <a href="/">
-                    <i className="fa-solid fa-comments"></i>&nbsp;Feedback
-                  </a>
-                </li>
-              </ul>
+            <div className="mt-5">
+              <List>
+                <ListItem button>
+                  <ListItemIcon>
+                    <HomeRoundedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Home" />
+                </ListItem>
+                <ListItem button>
+                  <ListItemIcon>
+                    <OndemandVideoRoundedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Youtube" />
+                </ListItem>
+                <ListItem button>
+                  <ListItemIcon>
+                    <AddBusinessRoundedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Ecommerce" />
+                </ListItem>
+              </List>
             </div>
           </div>
         </Grid>

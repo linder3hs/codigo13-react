@@ -1,0 +1,17 @@
+.container-admin-logo {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.container-admin-logo h4 {
+  font-size: 14px;
+  margin-bottom: 0;
+  color: rgb(59, 59, 59);
+}
+
+.container-admin-logo p {
+  font-size: 10px;
+  color: #999;
+  margin-top: 3px;
+}
