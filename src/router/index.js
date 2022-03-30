@@ -7,7 +7,7 @@
  * el el path creado
  */
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "../pages/Home";
+import Pokemon from "../pages/Pokemon";
 import Flags from "../pages/Flags";
 import Detail from "../pages/Detail";
 import Youtube from "../pages/Youtube";
@@ -18,6 +18,7 @@ import PopularWeek from "../pages/PopularWeek";
 import BasketView from "../pages/BasketView";
 import CreateProduct from "../pages/CreateProduct";
 import Profile from "../pages/Profile";
+import Home from "../pages/Home";
 // Layout
 import Main from "../layouts/Main";
 import Private from "../layouts/Private";
@@ -33,7 +34,7 @@ const Router = () => {
         {/* ROUTE DEL MAIN (PUBLICAS) */}
         <Route path="login" element={<Login />} />
         <Route element={<Main />}>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Pokemon />} />
           <Route path="/flags" element={<Flags />} />
           <Route path="/flag/detail/:name" element={<Detail />} />
           <Route path="/youtube" element={<Youtube />} />
@@ -55,6 +56,7 @@ const Router = () => {
           />
           <Route path="/ecommerce/create" element={<CreateProduct />} />
           <Route path="/perfil" element={<Profile />} />
+          <Route path="/home" element={<Home />} />
         </Route>
       </Routes>
     </BrowserRouter>
