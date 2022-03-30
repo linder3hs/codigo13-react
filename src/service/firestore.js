@@ -13,6 +13,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
+  sendEmailVerification,
 } from "firebase/auth";
 import { v4 as uuidv4 } from "uuid";
 
@@ -67,6 +68,12 @@ export const deleteProductClothe = async (id) => {
 // vamos a crear una funcion qu reciba un email y password
 // y cree un cuenta en firebase
 export const auth = getAuth();
+
+//Esta funcion va a enviar el correo de verificacion
+export const sendEmail = async () => {
+  const send = await sendEmailVerification(auth.currentUser);
+  return send;
+};
 
 export const updateUserProfile = async (profile) => {
   try {

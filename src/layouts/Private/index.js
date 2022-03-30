@@ -14,6 +14,7 @@ import codigoLogo from "../../assets/codigo-logo.png";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import OndemandVideoRoundedIcon from "@mui/icons-material/OndemandVideoRounded";
 import AddBusinessRoundedIcon from "@mui/icons-material/AddBusinessRounded";
+import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
 import "./index.css";
 
 const Private = () => {
@@ -59,6 +60,12 @@ const Private = () => {
                     <AddBusinessRoundedIcon />
                   </ListItemIcon>
                   <ListItemText primary="Ecommerce" />
+                </ListItem>
+                <ListItem button component={Link} to="/perfil">
+                  <ListItemIcon>
+                    <AccountCircleRoundedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Perfil" />
                 </ListItem>
               </List>
               <Box m={3}>

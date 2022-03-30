@@ -16,14 +16,14 @@ const Home = () => {
       fill: {
         colors: ["#fffaaa"],
       },
-      grid: {
-        row: {
-          colors: ["#F44336", "#E91E63", "#9C27B0"],
-        },
-        column: {
-          colors: ["#F44336", "#E91E63", "#9C27B0"],
-        },
-      },
+      // grid: {
+      //   row: {
+      //     colors: ["#F44336", "#E91E63", "#9C27B0"],
+      //   },
+      //   column: {
+      //     colors: ["#F44336", "#E91E63", "#9C27B0"],
+      //   },
+      // },
       chart: {
         zoom: {
           enabled: true,
