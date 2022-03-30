@@ -8,6 +8,7 @@ import {
   ListItem,
   ListItemText,
   ListItemIcon,
+  Divider,
 } from "@mui/material";
 import codigoLogo from "../../assets/codigo-logo.png";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
@@ -27,7 +28,7 @@ const Private = () => {
   return (
     <Box m={3}>
       <Grid container spacing={3}>
-        <Grid item md={1.5} className="border-right">
+        <Grid item md={1.7} className="border-right">
           <div className="m-5">
             <div className="container-admin-logo">
               <div>
@@ -39,28 +40,30 @@ const Private = () => {
                 <p>Administrador de codigo</p>
               </div>
             </div>
-
             <div className="mt-5">
               <List>
-                <ListItem button>
+                <ListItem button component={Link} to="/home">
                   <ListItemIcon>
                     <HomeRoundedIcon />
                   </ListItemIcon>
                   <ListItemText primary="Home" />
                 </ListItem>
-                <ListItem button>
+                <ListItem button component={Link} to="/youtube/administrador">
                   <ListItemIcon>
                     <OndemandVideoRoundedIcon />
                   </ListItemIcon>
                   <ListItemText primary="Youtube" />
                 </ListItem>
-                <ListItem button>
+                <ListItem button component={Link} to="/ecommerce/create">
                   <ListItemIcon>
                     <AddBusinessRoundedIcon />
                   </ListItemIcon>
                   <ListItemText primary="Ecommerce" />
                 </ListItem>
               </List>
+              <Box m={3}>
+                <Divider />
+              </Box>
             </div>
           </div>
         </Grid>
