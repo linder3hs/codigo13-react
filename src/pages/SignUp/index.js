@@ -1,11 +1,61 @@
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, TextField } from "@mui/material";
+import { useFormik } from "formik";
+
+// nombre
+// apellido
+// correo
+// telefono
+// contrasena
+// direccion
+// ciudad
+// fecha de nacimiento
+// DNI
+// sexo
 
 const SignUp = () => {
   return (
     <Container maxWidth="lg">
-      <Grid>
-        <h3>SignUp</h3>
-      </Grid>
+      <form>
+        <Grid container spacing={3}>
+          <Grid item md={12} xs={12}>
+            <h2>Crear cuenta</h2>
+          </Grid>
+          <Grid item md={6} xs={12}>
+            <TextField label="Nombre" name="name" fullWidth />
+          </Grid>
+          <Grid item md={6} xs={12}>
+            <TextField label="Apellido" name="last_name" fullWidth />
+          </Grid>
+          <Grid item md={6} xs={12}>
+            <TextField label="Correo" name="email" type="email" fullWidth />
+          </Grid>
+          <Grid item md={6} xs={12}>
+            <TextField
+              label="Telefono"
+              name="phone_number"
+              type="number"
+              fullWidth
+            />
+          </Grid>
+          <Grid item md={6} xs={12}>
+            <TextField
+              label="Password"
+              name="password"
+              type="password"
+              fullWidth
+            />
+          </Grid>
+          <Grid item md={6} xs={12}>
+            <TextField label="Direccion" name="address" fullWidth />
+          </Grid>
+          <Grid item md={6} xs={12}>
+            <TextField label="Ciudad" name="city" fullWidth />
+          </Grid>
+          <Grid item md={6} xs={12}></Grid>
+          <Grid item md={6} xs={12}></Grid>
+          <Grid item md={6} xs={12}></Grid>
+        </Grid>
+      </form>
     </Container>
   );
 };
