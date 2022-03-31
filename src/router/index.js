@@ -19,6 +19,7 @@ import BasketView from "../pages/BasketView";
 import CreateProduct from "../pages/CreateProduct";
 import Profile from "../pages/Profile";
 import Home from "../pages/Home";
+import Map from "../pages/Map";
 // Layout
 import Main from "../layouts/Main";
 import Private from "../layouts/Private";
@@ -38,6 +39,7 @@ const Router = () => {
           <Route path="/flags" element={<Flags />} />
           <Route path="/flag/detail/:name" element={<Detail />} />
           <Route path="/youtube" element={<Youtube />} />
+          <Route path="/maps" element={<Map />} />
         </Route>
         {/* ROUTE para ecommerce */}
         <Route element={<Ecommerce />}>
