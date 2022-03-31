@@ -20,6 +20,7 @@ import CreateProduct from "../pages/CreateProduct";
 import Profile from "../pages/Profile";
 import Home from "../pages/Home";
 import Map from "../pages/Map";
+import SignUp from "../pages/SignUp";
 // Layout
 import Main from "../layouts/Main";
 import Private from "../layouts/Private";
@@ -34,6 +35,7 @@ const Router = () => {
       <Routes>
         {/* ROUTE DEL MAIN (PUBLICAS) */}
         <Route path="login" element={<Login />} />
+        <Route path="signUp" element={<SignUp />} />
         <Route element={<Main />}>
           <Route path="/" element={<Pokemon />} />
           <Route path="/flags" element={<Flags />} />
