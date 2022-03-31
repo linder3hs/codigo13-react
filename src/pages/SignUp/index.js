@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { Container, Grid, TextField } from "@mui/material";
+import {
+  Container,
+  Grid,
+  TextField,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+} from "@mui/material";
 import { useFormik } from "formik";
 import DateAdapter from "@mui/lab/AdapterDateFns";
 import { LocalizationProvider, DatePicker } from "@mui/lab";
@@ -78,7 +86,15 @@ const SignUp = () => {
               fullWidth
             />
           </Grid>
-          <Grid item md={6} xs={12}></Grid>
+          <Grid item md={6} xs={12}>
+            <FormControl fullWidth>
+              <InputLabel id="genero">Genero</InputLabel>
+              <Select labelId="genero" label="Genero">
+                <MenuItem value="Masculino">Masculino</MenuItem>
+                <MenuItem value="Femenino">Femenino</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
         </Grid>
       </form>
     </Container>
