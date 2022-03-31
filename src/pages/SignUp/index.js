@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Container, Grid, TextField } from "@mui/material";
 import { useFormik } from "formik";
 import DateAdapter from "@mui/lab/AdapterDateFns";
@@ -15,6 +16,8 @@ import { LocalizationProvider, DatePicker } from "@mui/lab";
 // sexo
 
 const SignUp = () => {
+  const [dateSelect, setDateSelect] = useState(null);
+
   return (
     <Container maxWidth="lg">
       <form>
@@ -58,15 +61,13 @@ const SignUp = () => {
               <DatePicker
                 label="Fecha de nacimiento"
                 name="date_born"
-                renderInput={(params) => <TextField {...params} />}
+                value={dateSelect}
+                onChange={(date) => {
+                  setDateSelect(date);
+                }}
+                renderInput={(params) => <TextField fullWidth {...params} />}
               />
             </LocalizationProvider>
-            {/* <TextField
-              label="Fecha de nacimiento"
-              name="date_born"
-              type="date"
-              fullWidth
-            /> */}
           </Grid>
           <Grid item md={6} xs={12}></Grid>
           <Grid item md={6} xs={12}></Grid>
