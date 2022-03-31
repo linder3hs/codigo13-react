@@ -62,6 +62,7 @@ const SignUp = () => {
                 label="Fecha de nacimiento"
                 name="date_born"
                 value={dateSelect}
+                inputFormat="dd/MM/yyyy"
                 onChange={(date) => {
                   setDateSelect(date);
                 }}
@@ -69,7 +70,14 @@ const SignUp = () => {
               />
             </LocalizationProvider>
           </Grid>
-          <Grid item md={6} xs={12}></Grid>
+          <Grid item md={6} xs={12}>
+            <TextField
+              label="DNI/Pasaport/CE"
+              name="document_number"
+              type="number"
+              fullWidth
+            />
+          </Grid>
           <Grid item md={6} xs={12}></Grid>
         </Grid>
       </form>
