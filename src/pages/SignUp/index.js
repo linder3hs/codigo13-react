@@ -43,30 +43,50 @@ const SignUp = () => {
       document_number: "",
       gender: "",
     },
+    onSubmit: (values) => {
+      console.log(values);
+    },
   });
 
   return (
     <Container maxWidth="lg">
       {/* como esto es un form tiene un evento llamando onSubmit */}
-      <form onSubmit>
+      <form onSubmit={formik.handleSubmit}>
         <Grid container spacing={3}>
           <Grid item md={12} xs={12}>
             <h2>Crear cuenta</h2>
           </Grid>
           <Grid item md={6} xs={12}>
-            <TextField label="Nombre" name="name" fullWidth />
+            <TextField
+              label="Nombre"
+              name="name"
+              fullWidth
+              onChange={formik.handleChange}
+            />
           </Grid>
           <Grid item md={6} xs={12}>
-            <TextField label="Apellido" name="last_name" fullWidth />
+            <TextField
+              label="Apellido"
+              name="last_name"
+              fullWidth
+              onChange={formik.handleChange}
+            />
           </Grid>
           <Grid item md={6} xs={12}>
-            <TextField label="Correo" name="email" type="email" fullWidth />
+            <TextField
+              label="Correo"
+              name="email"
+              type="email"
+              fullWidth
+              onChange={formik.handleChange}
+            />
           </Grid>
           <Grid item md={6} xs={12}>
             <TextField
               label="Telefono"
               name="phone_number"
               type="number"
+              onChange={formik.handleChange}
               fullWidth
             />
           </Grid>
@@ -75,14 +95,25 @@ const SignUp = () => {
               label="Password"
               name="password"
               type="password"
+              onChange={formik.handleChange}
               fullWidth
             />
           </Grid>
           <Grid item md={6} xs={12}>
-            <TextField label="Direccion" name="address" fullWidth />
+            <TextField
+              label="Direccion"
+              name="address"
+              fullWidth
+              onChange={formik.handleChange}
+            />
           </Grid>
           <Grid item md={6} xs={12}>
-            <TextField label="Ciudad" name="city" fullWidth />
+            <TextField
+              label="Ciudad"
+              name="city"
+              fullWidth
+              onChange={formik.handleChange}
+            />
           </Grid>
           <Grid item md={6} xs={12}>
             <LocalizationProvider dateAdapter={DateAdapter}>
@@ -92,7 +123,9 @@ const SignUp = () => {
                 value={dateSelect}
                 inputFormat="dd/MM/yyyy"
                 onChange={(date) => {
+                  // en este caso tenemos la funcion setDateSelect
                   setDateSelect(date);
+                  // formik.handleChange();
                 }}
                 renderInput={(params) => <TextField fullWidth {...params} />}
               />
@@ -103,13 +136,19 @@ const SignUp = () => {
               label="DNI/Pasaport/CE"
               name="document_number"
               type="number"
+              onChange={formik.handleChange}
               fullWidth
             />
           </Grid>
           <Grid item md={6} xs={12}>
             <FormControl fullWidth>
               <InputLabel id="genero">Genero</InputLabel>
-              <Select labelId="genero" label="Genero" name="gender">
+              <Select
+                labelId="genero"
+                label="Genero"
+                onChange={formik.handleChange}
+                name="gender"
+              >
                 <MenuItem value="Masculino">Masculino</MenuItem>
                 <MenuItem value="Femenino">Femenino</MenuItem>
               </Select>
