@@ -152,6 +152,8 @@ const SignUp = () => {
         });
         return;
       }
+      // aca ustedes deben llamar a la funcion que se
+      // encarga de crear al usuario en firebase
       console.log(values);
     },
   });
