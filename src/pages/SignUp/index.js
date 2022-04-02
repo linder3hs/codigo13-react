@@ -2,6 +2,7 @@ import { useState } from "react";
 import {
   Container,
   Grid,
+  Button,
   TextField,
   FormControl,
   InputLabel,
@@ -26,9 +27,28 @@ import { LocalizationProvider, DatePicker } from "@mui/lab";
 const SignUp = () => {
   const [dateSelect, setDateSelect] = useState(null);
 
+  // vamos a crear una funcion usando formik
+  const formik = useFormik({
+    // dentro de formik vamos a definir los valores iniciales de nuestro
+    // formulario
+    initialValues: {
+      name: "",
+      last_name: "",
+      email: "",
+      phone_number: "",
+      password: "",
+      address: "",
+      city: "",
+      date_born: "",
+      document_number: "",
+      gender: "",
+    },
+  });
+
   return (
     <Container maxWidth="lg">
-      <form>
+      {/* como esto es un form tiene un evento llamando onSubmit */}
+      <form onSubmit>
         <Grid container spacing={3}>
           <Grid item md={12} xs={12}>
             <h2>Crear cuenta</h2>
@@ -89,11 +109,16 @@ const SignUp = () => {
           <Grid item md={6} xs={12}>
             <FormControl fullWidth>
               <InputLabel id="genero">Genero</InputLabel>
-              <Select labelId="genero" label="Genero">
+              <Select labelId="genero" label="Genero" name="gender">
                 <MenuItem value="Masculino">Masculino</MenuItem>
                 <MenuItem value="Femenino">Femenino</MenuItem>
               </Select>
             </FormControl>
+          </Grid>
+          <Grid item md={12} xs={12}>
+            <Button type="submit" variant="contained" fullWidth size="large">
+              Crear cuenta
+            </Button>
           </Grid>
         </Grid>
       </form>
