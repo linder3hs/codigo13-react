@@ -34,7 +34,7 @@ import swal from "sweetalert";
 // recurden que al crear un ususario solo podeomos guardar 2 cosas
 // email y el password
 // ustedes puede hacer que despuesde que se cree el usuario pueden
-// actualizar y guardar su nombre 
+// actualizar y guardar su nombre
 
 const SignUp = () => {
   const [dateSelect, setDateSelect] = useState(null);
@@ -133,7 +133,8 @@ const SignUp = () => {
     // validate que ahora es una funcion de formik por ende el valir default
     // que tendra como parametros son los values
     validate,
-    onSubmit: (values) => {
+    // usen async antes del storeUser 
+    onSubmit: async (values) => {
       // Si values.languages
       if (values.languages.length === 0) {
         swal({
