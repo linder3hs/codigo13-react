@@ -44,8 +44,11 @@ const SignUp = () => {
     date_born: false,
     document_number: false,
     gender: false,
-    marital_status: false,
   });
+
+  // vamos a crear una variable que se encargue de manejar si es que el boton
+  // esta en disabled o no
+  const [buttonDisabled, setButtonDisabled] = useState(false);
 
   // vamos a crear una funcion llamada validate la cual se va a encargar
   // de poder almacenar los errores que tengas en nuestro formulario
@@ -57,6 +60,9 @@ const SignUp = () => {
     // este vacio lance un error de que todos los campos son requeridos
     // Esto extrae los keys del objeto y los guarda en un array
     const errors = {};
+    delete values.marital_status;
+    delete values.date_born;
+    delete values.gender;
     Object.keys(values).forEach((value) => {
       //aca estamos comparado si es el uno de los items del objeto esta vacio
       // si este vacio entonces muestra en la consola dicho campo
@@ -69,6 +75,18 @@ const SignUp = () => {
       // }
       errors[value] = values[value] === "" ? true : false;
     });
+    // basicamente si todos los campos de error son false entonces
+    // asumimismo que todo esta lleno
+
+    // Object.values(errors) Es un array que tiene los valores
+    // if (Object.values(errors).includes(true)) {
+    //   setButtonDisabled(true);
+    // } else {
+    //   setButtonDisabled(false);
+    // }
+    // recordemos que includes retorna true o false
+    // si encuenstra al elemento es true si no false
+    setButtonDisabled(Object.values(errors).includes(true));
     setValidateInputsEmpty(errors);
   };
 
@@ -293,7 +311,13 @@ const SignUp = () => {
             </FormGroup>
           </Grid>
           <Grid item md={12} xs={12}>
-            <Button type="submit" variant="contained" fullWidth size="large">
+            <Button
+              type="submit"
+              disabled={buttonDisabled}
+              variant="contained"
+              fullWidth
+              size="large"
+            >
               Crear cuenta
             </Button>
           </Grid>
