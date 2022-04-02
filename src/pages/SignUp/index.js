@@ -33,6 +33,20 @@ import { LocalizationProvider, DatePicker } from "@mui/lab";
 const SignUp = () => {
   const [dateSelect, setDateSelect] = useState(null);
 
+  const [validateInputsEmpty, setValidateInputsEmpty] = useState({
+    name: false,
+    last_name: false,
+    email: false,
+    phone_number: false,
+    password: false,
+    address: false,
+    city: false,
+    date_born: false,
+    document_number: false,
+    gender: false,
+    marital_status: false,
+  });
+
   // vamos a crear una funcion llamada validate la cual se va a encargar
   // de poder almacenar los errores que tengas en nuestro formulario
   // nota: validate va a recibir como parametros los valores de nuestros inpus
@@ -42,14 +56,20 @@ const SignUp = () => {
     // para hacerlo pro podriamos usar los key de nuestro inputs y ver que si algunos
     // este vacio lance un error de que todos los campos son requeridos
     // Esto extrae los keys del objeto y los guarda en un array
+    const errors = {};
     Object.keys(values).forEach((value) => {
       //aca estamos comparado si es el uno de los items del objeto esta vacio
       // si este vacio entonces muestra en la consola dicho campo
-      if (values[value] === "") {
-        // aca a va imprimir los nombre de los inputs que estan vacios
-        console.log(value);
-      }
+      // if (values[value] === "") {
+      // aca a va imprimir los nombre de los inputs que estan vacios
+      //  aca deberamos usar la funcion setValidateInputsEmpty
+      //   errors[value] = true;
+      // } else {
+      //   errors[value] = false;
+      // }
+      errors[value] = values[value] === "" ? true : false;
     });
+    setValidateInputsEmpty(errors);
   };
 
   // vamos a crear una funcion usando formik
@@ -95,7 +115,7 @@ const SignUp = () => {
               label="Nombre"
               name="name"
               fullWidth
-              error={false}
+              error={validateInputsEmpty.name}
               onChange={formik.handleChange}
             />
           </Grid>
@@ -104,6 +124,7 @@ const SignUp = () => {
               label="Apellido"
               name="last_name"
               fullWidth
+              error={validateInputsEmpty.last_name}
               onChange={formik.handleChange}
             />
           </Grid>
@@ -111,6 +132,7 @@ const SignUp = () => {
             <TextField
               label="Correo"
               name="email"
+              error={validateInputsEmpty.email}
               type="email"
               fullWidth
               onChange={formik.handleChange}
@@ -120,6 +142,7 @@ const SignUp = () => {
             <TextField
               label="Telefono"
               name="phone_number"
+              error={validateInputsEmpty.phone_number}
               type="number"
               onChange={formik.handleChange}
               fullWidth
@@ -129,6 +152,7 @@ const SignUp = () => {
             <TextField
               label="Password"
               name="password"
+              error={validateInputsEmpty.password}
               type="password"
               onChange={formik.handleChange}
               fullWidth
@@ -138,6 +162,7 @@ const SignUp = () => {
             <TextField
               label="Direccion"
               name="address"
+              error={validateInputsEmpty.address}
               fullWidth
               onChange={formik.handleChange}
             />
@@ -146,6 +171,7 @@ const SignUp = () => {
             <TextField
               label="Ciudad"
               name="city"
+              error={validateInputsEmpty.city}
               fullWidth
               onChange={formik.handleChange}
             />
@@ -166,7 +192,13 @@ const SignUp = () => {
                   // 2 el valor de campo (date)
                   formik.setFieldValue("date_born", date);
                 }}
-                renderInput={(params) => <TextField fullWidth {...params} />}
+                renderInput={(params) => (
+                  <TextField
+                    fullWidth
+                    error={validateInputsEmpty.date_born}
+                    {...params}
+                  />
+                )}
               />
             </LocalizationProvider>
           </Grid>
@@ -175,6 +207,7 @@ const SignUp = () => {
               label="DNI/Pasaport/CE"
               name="document_number"
               type="number"
+              error={validateInputsEmpty.document_number}
               onChange={formik.handleChange}
               fullWidth
             />
