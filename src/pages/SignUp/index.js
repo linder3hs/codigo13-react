@@ -31,6 +31,11 @@ import swal from "sweetalert";
 // DNI
 // sexo
 
+// recurden que al crear un ususario solo podeomos guardar 2 cosas
+// email y el password
+// ustedes puede hacer que despuesde que se cree el usuario pueden
+// actualizar y guardar su nombre 
+
 const SignUp = () => {
   const [dateSelect, setDateSelect] = useState(null);
 
@@ -138,7 +143,7 @@ const SignUp = () => {
         });
         return;
       }
-      console.log("values.marital_status", values.marital_status);
+      // console.log("values.marital_status", values.marital_status);
       if (values.marital_status === "") {
         swal({
           icon: "error",
