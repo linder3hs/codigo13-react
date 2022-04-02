@@ -125,7 +125,11 @@ const SignUp = () => {
                 onChange={(date) => {
                   // en este caso tenemos la funcion setDateSelect
                   setDateSelect(date);
-                  // formik.handleChange();
+                  // existe una propiedad llamada setFieldValue
+                  //setFieldValue recibe 2 cosas
+                  // 1 el nombre de campo (name)
+                  // 2 el valor de campo (date)
+                  formik.setFieldValue("date_born", date);
                 }}
                 renderInput={(params) => <TextField fullWidth {...params} />}
               />
