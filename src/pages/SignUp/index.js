@@ -5,6 +5,12 @@ import {
   Button,
   TextField,
   FormControl,
+  FormLabel,
+  FormControlLabel,
+  RadioGroup,
+  FormGroup,
+  Checkbox,
+  Radio,
   InputLabel,
   Select,
   MenuItem,
@@ -12,6 +18,7 @@ import {
 import { useFormik } from "formik";
 import DateAdapter from "@mui/lab/AdapterDateFns";
 import { LocalizationProvider, DatePicker } from "@mui/lab";
+import { Form } from "react-bootstrap";
 
 // nombre
 // apellido
@@ -42,6 +49,8 @@ const SignUp = () => {
       date_born: "",
       document_number: "",
       gender: "",
+      marital_status: "",
+      languages: [],
     },
     onSubmit: (values) => {
       console.log(values);
@@ -157,6 +166,72 @@ const SignUp = () => {
                 <MenuItem value="Femenino">Femenino</MenuItem>
               </Select>
             </FormControl>
+          </Grid>
+          <Grid item md={6} xs={12}>
+            {/* Radio de estado civil */}
+            <FormControl>
+              <FormLabel id="label-radio">Estado civil</FormLabel>
+              <RadioGroup
+                aria-labelledby="label-radio"
+                onChange={formik.handleChange}
+                name="marital_status"
+              >
+                <FormControlLabel
+                  value="soltero"
+                  control={<Radio />}
+                  label="Soltero"
+                />
+                <FormControlLabel
+                  value="divorciado"
+                  control={<Radio />}
+                  label="Divorciado"
+                />
+                <FormControlLabel
+                  value="viudo"
+                  control={<Radio />}
+                  label="Viudo"
+                />
+                <FormControlLabel
+                  value="casodo"
+                  control={<Radio />}
+                  label="Casado"
+                />
+              </RadioGroup>
+            </FormControl>
+          </Grid>
+          <Grid item md={6} xs={12}>
+            <FormGroup>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    value="ingles"
+                    onChange={formik.handleChange}
+                    name="languages"
+                  />
+                }
+                label="Ingles"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    value="portuges"
+                    onChange={formik.handleChange}
+                    name="languages"
+                  />
+                }
+                label="Portugues"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    value="espanol"
+                    onChange={formik.handleChange}
+                    name="languages"
+                  />
+                }
+                label="Español"
+              />
+            </FormGroup>
           </Grid>
           <Grid item md={12} xs={12}>
             <Button type="submit" variant="contained" fullWidth size="large">
