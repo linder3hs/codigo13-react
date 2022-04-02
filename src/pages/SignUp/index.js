@@ -18,6 +18,7 @@ import {
 import { useFormik } from "formik";
 import DateAdapter from "@mui/lab/AdapterDateFns";
 import { LocalizationProvider, DatePicker } from "@mui/lab";
+import swal from "sweetalert";
 
 // nombre
 // apellido
@@ -60,21 +61,35 @@ const SignUp = () => {
     // este vacio lance un error de que todos los campos son requeridos
     // Esto extrae los keys del objeto y los guarda en un array
     const errors = {};
-    delete values.marital_status;
-    delete values.date_born;
-    delete values.gender;
-    Object.keys(values).forEach((value) => {
-      //aca estamos comparado si es el uno de los items del objeto esta vacio
-      // si este vacio entonces muestra en la consola dicho campo
-      // if (values[value] === "") {
-      // aca a va imprimir los nombre de los inputs que estan vacios
-      //  aca deberamos usar la funcion setValidateInputsEmpty
-      //   errors[value] = true;
-      // } else {
-      //   errors[value] = false;
-      // }
-      errors[value] = values[value] === "" ? true : false;
-    });
+    // delete values.marital_status;
+    // delete values.date_born;
+    // delete values.gender;
+    // vamos a crear un array con los keys del objeto
+    // pero antes de hacer el forEach vamos hacer un filter
+    // para poder eliminar el campo marital_status del array delo objetos
+    // ["name", "last_name", "email" ... "marital_status"]
+    // ahora hacemos el filter sirve en si para poder eliminar el campo marital_status del array
+    // queda asi ["name", "last_name", "email" ...]
+    // y luego de eso hacemos recien el forEach
+    Object.keys(values)
+      .filter(
+        (value) =>
+          value !== "marital_status" ||
+          value !== "date_born" ||
+          values === "gender"
+      )
+      .forEach((value) => {
+        //aca estamos comparado si es el uno de los items del objeto esta vacio
+        // si este vacio entonces muestra en la consola dicho campo
+        // if (values[value] === "") {
+        // aca a va imprimir los nombre de los inputs que estan vacios
+        //  aca deberamos usar la funcion setValidateInputsEmpty
+        //   errors[value] = true;
+        // } else {
+        //   errors[value] = false;
+        // }
+        errors[value] = values[value] === "" ? true : false;
+      });
     // basicamente si todos los campos de error son false entonces
     // asumimismo que todo esta lleno
 
@@ -114,6 +129,24 @@ const SignUp = () => {
     // que tendra como parametros son los values
     validate,
     onSubmit: (values) => {
+      // Si values.languages
+      if (values.languages.length === 0) {
+        swal({
+          icon: "error",
+          title: "Error",
+          text: "Debe completar al menos un lenguage",
+        });
+        return;
+      }
+      console.log("values.marital_status", values.marital_status);
+      if (values.marital_status === "") {
+        swal({
+          icon: "error",
+          title: "Error",
+          text: "Debe completar su estado civil",
+        });
+        return;
+      }
       console.log(values);
     },
   });
@@ -291,7 +324,7 @@ const SignUp = () => {
               <FormControlLabel
                 control={
                   <Checkbox
-                    value="portuges"
+                    value="portugues"
                     onChange={formik.handleChange}
                     name="languages"
                   />
