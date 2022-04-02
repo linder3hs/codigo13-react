@@ -18,7 +18,6 @@ import {
 import { useFormik } from "formik";
 import DateAdapter from "@mui/lab/AdapterDateFns";
 import { LocalizationProvider, DatePicker } from "@mui/lab";
-import { Form } from "react-bootstrap";
 
 // nombre
 // apellido
@@ -33,6 +32,25 @@ import { Form } from "react-bootstrap";
 
 const SignUp = () => {
   const [dateSelect, setDateSelect] = useState(null);
+
+  // vamos a crear una funcion llamada validate la cual se va a encargar
+  // de poder almacenar los errores que tengas en nuestro formulario
+  // nota: validate va a recibir como parametros los valores de nuestros inpus
+  const validate = (values) => {
+    // aca estaran nuestros errores
+    // podemos validar que todos los campos sean requerido
+    // para hacerlo pro podriamos usar los key de nuestro inputs y ver que si algunos
+    // este vacio lance un error de que todos los campos son requeridos
+    // Esto extrae los keys del objeto y los guarda en un array
+    Object.keys(values).forEach((value) => {
+      //aca estamos comparado si es el uno de los items del objeto esta vacio
+      // si este vacio entonces muestra en la consola dicho campo
+      if (values[value] === "") {
+        // aca a va imprimir los nombre de los inputs que estan vacios
+        console.log(value);
+      }
+    });
+  };
 
   // vamos a crear una funcion usando formik
   const formik = useFormik({
@@ -52,6 +70,11 @@ const SignUp = () => {
       marital_status: "",
       languages: [],
     },
+    // para poder usar validate dentro de formik necesitamos llamar a la funcion
+    // validate antes del onSubmit
+    // validate que ahora es una funcion de formik por ende el valir default
+    // que tendra como parametros son los values
+    validate,
     onSubmit: (values) => {
       console.log(values);
     },
@@ -65,11 +88,14 @@ const SignUp = () => {
           <Grid item md={12} xs={12}>
             <h2>Crear cuenta</h2>
           </Grid>
+          {/* NOTA: Lo inputs de material tienen una propiedad para mostrar errores */}
+          {/* llamada error si error es true entonces el input se marca de rojo si no, no pasada */}
           <Grid item md={6} xs={12}>
             <TextField
               label="Nombre"
               name="name"
               fullWidth
+              error={false}
               onChange={formik.handleChange}
             />
           </Grid>
@@ -245,3 +271,31 @@ const SignUp = () => {
 };
 
 export default SignUp;
+
+// entienden que values es el objeto que tiene los valores delo inputs
+// const values = {
+//   name: "pepe",
+//   last_name: "",
+//   email: "",
+//   phone_number: "",
+//   password: "",
+//   address: "",
+// };
+
+// ahora al hacer un Objet.key(values)
+// estamos extrayendo los key guardandalo en un array
+// Object.keys(values);
+// [name, last_name, email, phone_number, password, address];
+
+// ahora para poder extraer lo que es un elemente del objeto hay 2 formas
+// values.name = pepe
+// values[name] = pepe
+
+// Si le hacemos un forEach a Object.keys(values);
+// Object.keys(values).forEach((value) => {
+//   console.log(value);
+//   console.log(values[value]);
+//   if (values[value] === "") {
+//     console.log("Este valor " + value + " esta vacio");
+//   }
+// });
