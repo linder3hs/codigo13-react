@@ -27,7 +27,7 @@ describe("Mi primera prueba con cypress", () => {
   });
 
   // vamos a crear a otra prueba para /flags
-  it("pruebas para banders", () => {
+  it("pruebas para banderas", () => {
     cy.visit("http://localhost:3000/flags");
     // vamos a ver como podemos escribir en un input
     // Estamos buscando el primero input y luego de encontrarlos
@@ -38,4 +38,7 @@ describe("Mi primera prueba con cypress", () => {
       cy.contains("Lima");
     });
   });
+
+  // Creeen una prueba para http://localhost:3000/youtube y
+  // verifiquen si que existe un titulo NAME 33
 });
