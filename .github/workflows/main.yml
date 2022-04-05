@@ -1,0 +1,17 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Cypress
+
+on: [push]
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Checkout
+       uses: actions/checkout@v3.0.0
+     - name: Cypress.io
+       uses: cypress-io/github-action@v2.9.7
+       with:
+        start: npm start
+        
+
