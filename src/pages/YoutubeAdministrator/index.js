@@ -32,7 +32,7 @@ const YoutubeAdministrator = () => {
   const fetchDeleteItem = async (id) => {
     console.log(id);
     const response = await swal({
-      title: "Esta seguro de eliminar?",
+      title: "Esta seguro de eliminar?????",
       text: "Recuerda que una vez eliminado no hay vuelta atras",
       icon: "warning",
       buttons: true,
