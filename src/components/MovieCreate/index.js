@@ -81,7 +81,11 @@ const MovieCreate = (props) => {
               />
             </Grid>
             <Grid item md={12}>
-              <Button variant="contained" onClick={fetchStoreMovie}>
+              <Button
+                className="btn-crear-movie"
+                variant="contained"
+                onClick={fetchStoreMovie}
+              >
                 Crear
               </Button>
             </Grid>

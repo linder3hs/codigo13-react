@@ -92,6 +92,7 @@ const YoutubeAdministrator = () => {
 
                     <Button
                       color="error"
+                      className="delete-button"
                       onClick={() => fetchDeleteItem(movie.id)}
                     >
                       <DeleteForeverRoundedIcon />

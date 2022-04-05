@@ -53,5 +53,17 @@ describe("Mi primera prueba con cypress", () => {
     cy.url().should("include", "/youtube/administrador");
     // primero deben abrir el modal y luego hacer que escriba en cada input
     // finalmente darle click al boton Crear
+    cy.contains("Crear Pelicula").click();
+    cy.get('[name="name"]').type("Hombre araña 2");
+    cy.get('[name="director"]').type("Julio Araujo");
+    cy.get('[name="gender"]').type("dc");
+    cy.get('[name="video_link"]').type("www.google.com");
+    cy.get('[name="wallpaper"]').type("www.google.com");
+    cy.get(".btn-crear-movie").click();
+    cy.contains("Hombre araña 2");
+    // Eliminar la ultima pelicula que hemos agregado
+    // recurden que estamos accediente al ultimo boton porque estamos usando .last()
+    cy.get(".delete-button").last().click();
+    cy.contains("OK").click();
   });
 });
