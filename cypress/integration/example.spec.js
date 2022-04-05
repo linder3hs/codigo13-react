@@ -41,4 +41,17 @@ describe("Mi primera prueba con cypress", () => {
 
   // Creeen una prueba para http://localhost:3000/youtube y
   // verifiquen si que existe un titulo NAME 33
+
+  it("prueba de login", () => {
+    cy.visit("http://localhost:3000/login");
+    // ahora vamos a ver de que otra podemos acceder a los inputs
+    // usando el name del inputs podemos encontrar uno especifico y
+    // poder escribir en el
+    cy.get('[name="email"]').type("pepe@gmail.com");
+    cy.get('[name="password"]').type("123456");
+    cy.contains("Iniciar Session").click();
+    cy.url().should("include", "/youtube/administrador");
+    // primero deben abrir el modal y luego hacer que escriba en cada input
+    // finalmente darle click al boton Crear
+  });
 });
