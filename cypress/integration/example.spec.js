@@ -11,7 +11,7 @@ describe("Mi primera prueba con cypress", () => {
     // aca vamos a verificar si es que nuestro home funciona o no
     //cy => cypress
     // Esto va a entrar a localhost:3000 y decirno si funciona o no
-    cy.visit("https://codigo13-react-two.vercel.app/", { timeout: 30000 });
+    cy.visit("https://codigo13-react-two.vercel.app/");
     // contains
     // Esto sirve para poder buscar algun texto en nuestra pagina
     // que busque la palabra pokedex
