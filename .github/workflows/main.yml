@@ -1,0 +1,22 @@
+name: Cypress Test
+# definir cuando se va a ejecutar este action
+on: [push]
+# necesitamos indicarle que harea
+jobs:
+  cypress-run:
+    # necesitamos indicar en que maquina hara las pruebas
+    runs-on: ubuntu-latest
+    # indicamos que pasos haremos para poder realizar las pruebas 
+    steps:
+    # vamos a llamar al action Checkout: Este action se va a encargar
+    # de poder clonar nuestro proyecto en la maquina virtual de ubuntu
+    - name: Checkout
+      uses: actions/checkout@v3.0.0
+    # despues de clonar nuestro proyecto vamos a usar el action de cypress
+    # para poder ejecutar los test
+    - name: Cypress.io
+      uses: cypress-io/github-actions@v2.9.7
+      # Luego de indicar que usaremos cypress vamos a decirle que ejecute el comando
+      # npm start
+      with:
+        start: npm start
