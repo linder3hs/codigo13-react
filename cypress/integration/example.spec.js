@@ -10,7 +10,7 @@ describe("Mi primera prueba con cypress", () => {
   it("prueba home pokemon", () => {
     // aca vamos a verificar si es que nuestro home funciona o no
     //cy => cypress
-    // Esto va a entrar a localhost:3000 y decirno si funciona o no
+    // Esto va a entrar a https://codigo13-react-two.vercel.app/ y decirno si funciona o no
     cy.visit("https://codigo13-react-two.vercel.app/");
     // contains
     // Esto sirve para poder buscar algun texto en nuestra pagina
@@ -39,7 +39,7 @@ describe("Mi primera prueba con cypress", () => {
     });
   });
 
-  // Creeen una prueba para http://localhost:3000/youtube y
+  // Creeen una prueba para https://codigo13-react-two.vercel.app//youtube y
   // verifiquen si que existe un titulo NAME 33
 
   it("prueba de login", () => {
