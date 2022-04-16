@@ -11,11 +11,7 @@ describe("Mi primera prueba con cypress", () => {
     // aca vamos a verificar si es que nuestro home funciona o no
     //cy => cypress
     // Esto va a entrar a https://codigo13-react-two.vercel.app/ y decirno si funciona o no
-    cy.visit("https://codigo13-react-two.vercel.app/");
-    // contains
-    // Esto sirve para poder buscar algun texto en nuestra pagina
-    // que busque la palabra pokedex
-    cy.contains("Pokedex");
+    cy.visit("https://codigo13-react-two.vercel.app/").contains("Pokedex");
     // ahora vamos a buscar el boton que diga Detalle del pokemon
     cy.contains("Detalle del pokemon").click();
     // Reto quiero que despues de abrir el modal busque la palabra Habilidades
